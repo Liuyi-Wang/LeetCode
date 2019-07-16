@@ -10,12 +10,14 @@ public:
             }
         }
         int index = 0;
-        while (counts[max_code]--) {
+        while (counts[max_code]) {
+            --counts[max_code];
             barcodes[index] = max_code;
             index = index+2 < barcodes.size() ? index+2 : 1;
         }
         for (int i = 1; i <= 10000; ++i) {
-            while (counts[i]-- > 0) {
+            while (counts[i]) {
+                --counts[i];
                 barcodes[index] = i;
                 index = index+2 < barcodes.size() ? index+2 : 1;
             }
