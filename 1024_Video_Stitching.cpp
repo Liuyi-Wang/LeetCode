@@ -31,6 +31,9 @@ public:
             if (pEnd < clips[i][0]) {
                 return -1;
             }
+            if (pEnd >= clips[i][1]) {
+                continue;
+            }
             dp[clips[i][1]] = min(dp[clips[i][1]], dp[clips[i][0]]+1);
             for (int j = clips[i][0]+1; j < clips[i][1]; ++j) {
                 dp[j] = min(dp[j], dp[clips[i][1]]);
