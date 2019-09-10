@@ -9,6 +9,7 @@ Similar to a heap implementation.
 920. Number of Music Playlists
 978. Longest Turbulent Subarray
 983. Minimum Cost For Tickets
+1000. Minimum Cost to Merge Stones
 
 ## More
 638. Shopping Offers
