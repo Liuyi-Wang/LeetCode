@@ -7,31 +7,30 @@ static int __ = []() {
 
 class Solution {
 public:
-    void solve(const vector<int> &candidates, const int &target, int i, int &sum, vector<int> &v) {
-        if (target == sum) {
+    void solve(const vector<int> &candidates, int &target, int i, vector<int> &v) {
+        if (0 == target) {
             d_result.push_back(v);
             return;
         }
-        if (target < sum) {
+        if (target < 0) {
             return;
         }
         for (int j = i; j < candidates.size(); ++j) {
-            if (sum+candidates[j] > target) {
-                continue;
+            if (target < candidates[j]) {
+                break;
             }
             v.push_back(candidates[j]);
-            sum += candidates[j];
-            solve(candidates, target, j, sum, v);
-            sum -= candidates[j];
+            target -= candidates[j];
+            solve(candidates, target, j, v);
+            target += candidates[j];
             v.pop_back();
         }
     }
     
     vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
-        sort(candidates.begin(), candidates.end(), greater<int>());
-        int sum = 0;
+        sort(candidates.begin(), candidates.end());
         vector<int> v;
-        solve(candidates, target, 0, sum, v);
+        solve(candidates, target, 0, v);
         return d_result;
     }
     
