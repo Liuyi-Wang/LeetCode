@@ -13,13 +13,11 @@ public:
         for (int i = 1; i < nums.size(); ++i) {
             if (e == nums[i]) {
                 ++c;
-            } else {
-                --c;
-            }
-            if (0 == c) {
-                ++i;
+            } else if (0 == c) {
                 e = nums[i];
                 c = 1;
+            } else {
+                --c;
             }
         }
         return e;
