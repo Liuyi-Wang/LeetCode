@@ -27,11 +27,6 @@ public:
             if (l) {
                 return l;
             }
-            Node* r = inorderSuccessor(l);
-            if (r) {
-                return r;
-            }
-            return l;
         }
         Node* p = node->parent;
         while (p && p->right == node) {
