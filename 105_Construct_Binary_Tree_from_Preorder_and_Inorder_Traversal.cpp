@@ -4,29 +4,30 @@
  *     int val;
  *     TreeNode *left;
  *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
 class Solution {
 public:
-    TreeNode* build(const vector<int>& preorder, int pb, int pe,
-                    const vector<int>& inorder, int ib, int ie) {
+    unordered_map<int, int> imap;
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+        for (int i = 0; i < inorder.size(); ++i) {
+            imap[inorder[i]] = i;
+        }
+        return recursion(preorder, 0, preorder.size()-1,
+                         inorder, 0, inorder.size()-1);
+    }
+    
+    TreeNode* recursion(const vector<int>& porder, int pb, int pe,
+                        const vector<int>& iorder, int ib, int ie) {
         if (pb > pe) {
             return NULL;
         }
-        TreeNode* node = new TreeNode(preorder[pb]);
-        int index = ib;
-        for (; index <= ie; ++index) {
-            if (preorder[pb] == inorder[index]) {
-                break;
-            }
-        }
-        node->left = build(preorder, pb+1, pb+index-ib, inorder, ib, index-1);
-        node->right = build(preorder, pb+index-ib+1, pe, inorder, index+1, ie);
-        return node;
-    }
-    
-    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
-        return build(preorder, 0, preorder.size()-1, inorder, 0, inorder.size()-1);    
+        int index = imap.find(porder[pb])->second;
+        TreeNode* l = recursion(porder, pb+1, pb+index-ib, iorder, ib, index-1);
+        TreeNode* r = recursion(porder, pb+index-ib+1, pe, iorder, index+1, ie);
+        return new TreeNode(porder[pb], l, r);
     }
 };
