@@ -1,45 +1,67 @@
-static int __ = []() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-	std::cout.tie(nullptr);
-	return 0;
-}();
-
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;
  *     TreeNode *left;
  *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
 class Solution {
 public:
-    TreeNode *solve(TreeNode *root) {
-        if (root->left && root->right) {
-            TreeNode *lt = solve(root->left);
-            TreeNode *rt = solve(root->right);
-            lt->right = root->right;
-            root->right = root->left;
-            root->left = NULL;
-            return rt;
-        } else if (root->left) {
-            TreeNode *lt = solve(root->left);
-            root->right = root->left;
-            root->left = NULL;
-            return lt;
-        } else if (root->right) {
-            TreeNode *rt = solve(root->right);
-            return rt;
+    void flatten(TreeNode* root) {
+        while (root) {
+            if (root->left && NULL == root->right) {
+                root->right = root->left;
+                root->left = NULL;
+            } else if (root->left) {
+                TreeNode* leftTail = root->left;
+                while (leftTail->right) {
+                    leftTail = leftTail->right;
+                }
+                leftTail->right = root->right;
+                root->right = root->left;
+                root->left = NULL;
+            }
+            root = root->right;
         }
-        return root;
     }
     
+    /*
     void flatten(TreeNode* root) {
         if (NULL == root) {
             return;
         }
-        solve(root);
+        TreeNode* tail = NULL;
+        recursion(root, tail);
     }
+    
+    void recursion(TreeNode* root, TreeNode* &tail) {
+        TreeNode* l = root->left;
+        TreeNode* r = root->right;
+        if (l && r) {
+            TreeNode* lt = NULL;
+            recursion(l, lt);
+            TreeNode* rt = NULL;
+            recursion(r, rt);
+            root->left = NULL;
+            root->right = l;
+            lt->right = r;
+            tail = rt;
+        } else if (l) {
+            TreeNode* lt = NULL;
+            recursion(l, lt);
+            root->left = NULL;
+            root->right = l;
+            tail = lt;
+        } else if (r) {
+            TreeNode* rt = NULL;
+            recursion(r, rt);
+            tail = rt;
+        } else {
+            tail = root;
+        }
+    }*/
 };
