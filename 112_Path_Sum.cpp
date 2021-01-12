@@ -1,41 +1,46 @@
-static int __ = []() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-	std::cout.tie(nullptr);
-	return 0;
-}();
-
-/**
- * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;
  *     TreeNode *left;
  *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
 class Solution {
 public:
-    bool solve(TreeNode *root, const int &sum, int s) {
-        if (NULL == root->left && NULL == root->right) {
-            if (s+root->val == sum) {
-                return true;
-            }
-            return false;
-        }
-        if (root->left && solve(root->left, sum, s+root->val)) {
-            return true;
-        }
-        if (root->right && solve(root->right, sum, s+root->val)) {
-            return true;
-        }
-        return false;
-    }
-    
+    /*
     bool hasPathSum(TreeNode* root, int sum) {
         if (NULL == root) {
             return false;
         }
-        return solve(root, sum, 0);
+        return recursion(root, sum, 0);
+    }
+    
+    bool recursion(TreeNode* root, const int& target, const int& sum) {
+        if (NULL == root->left && NULL == root->right) {
+            if (target == sum+root->val) {
+                return true;
+            }
+            return false;
+        }
+        if (root->left && recursion(root->left, target, sum+root->val)) {
+            return true;
+        }
+        if (root->right && recursion(root->right, target, sum+root->val)) {
+            return true;
+        }
+        return false;
+    }
+    */
+    bool hasPathSum(TreeNode* root, int sum) {
+        if (NULL == root) {
+            return false;
+        }
+        sum -= root->val;
+        if (NULL == root->left && NULL == root->right) {
+            return 0 == sum;
+        }
+        return hasPathSum(root->left, sum) || hasPathSum(root->right, sum);
     }
 };
