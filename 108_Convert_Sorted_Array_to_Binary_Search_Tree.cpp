@@ -1,33 +1,30 @@
-static int __ = []() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-	std::cout.tie(nullptr);
-	return 0;
-}();
-
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;
  *     TreeNode *left;
  *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
 class Solution {
 public:
-    TreeNode* solve(const vector<int> &nums, int l, int r) {
-        if (l > r) {
+    TreeNode* sortedArrayToBST(vector<int>& nums) {
+        if (nums.size() == 0) {
             return NULL;
         }
-        int mid = l+(r-l)/2;
-        TreeNode *root = new TreeNode(nums[mid]);
-        root->left = solve(nums, l, mid-1);
-        root->right = solve(nums, mid+1, r);
-        return root;
+        return recursion(nums, 0, nums.size()-1);
     }
     
-    TreeNode* sortedArrayToBST(vector<int>& nums) {
-        return solve(nums, 0, nums.size()-1);
+    TreeNode* recursion(const vector<int>& nums, int begin, int end) {
+        if (begin > end) {
+            return NULL;
+        }
+        int mid = begin+(end-begin)/2;
+        TreeNode* l = recursion(nums, begin, mid-1);
+        TreeNode* r = recursion(nums, mid+1, end);
+        return new TreeNode(nums[mid], l, r);
     }
 };
