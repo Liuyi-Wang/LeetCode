@@ -1,64 +1,39 @@
-static const int __ = []() {
-    std::ios::sync_with_stdio(false);
-    std::cin.tie(nullptr);
-    std::cout.tie(nullptr);
-    return 0;
-}();
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;
  *     TreeNode *left;
  *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
 class BSTIterator {
 public:
     BSTIterator(TreeNode* root) {
-        d_find = false;
-        if (NULL != root) {
-            d_nodes.push(root);
-        }
+        d_it = root;
     }
     
-    /** @return the next smallest number */
     int next() {
-        hasNext();
-        d_find = false;
-        return d_next->val;
+        while (d_it) {
+            d_s.push(d_it);
+            d_it = d_it->left;
+        }
+        d_it = d_s.top();
+        d_s.pop();
+        int result = d_it->val;
+        d_it = d_it->right;
+        return result;
     }
     
-    /** @return whether we have a next smallest number */
     bool hasNext() {
-        if (d_find) {
-            return true;
-        }
-        while (!d_nodes.empty()) {
-            TreeNode* node = d_nodes.top();
-            d_nodes.pop();
-            if (NULL == node->left && NULL == node->right) {
-                d_next = node;
-                d_find = true;
-                return true;
-            }
-            if (NULL != node->right) {
-                d_nodes.push(node->right);
-                node->right = NULL;
-            }
-            TreeNode* left = node->left;
-            node->left = NULL;
-            d_nodes.push(node);
-            if (NULL != left) {
-                d_nodes.push(left);
-            }
-        }
-        return false;
+        return !d_s.empty() || d_it;
     }
+    
 private:
-    stack<TreeNode*> d_nodes;
-    bool d_find;
-    TreeNode* d_next;
+    stack<TreeNode*> d_s;
+    TreeNode* d_it;
 };
 
 /**
