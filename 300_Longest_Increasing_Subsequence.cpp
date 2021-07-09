@@ -1,36 +1,20 @@
-static int __ = []() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-	std::cout.tie(nullptr);
-	return 0;
-}();
-
 class Solution {
 public:
     int lengthOfLIS(vector<int>& nums) {
-        if (0 == nums.size()) {
-            return 0;
-        }
-        vector<int> dp;
-        dp.push_back(nums[0]);
-        for (int i = 1; i < nums.size(); ++i) {
-            int l = 0, r = dp.size()-1;
-            while (l+1 < r) {
-                int m = l+(r-l)/2;
-                if (dp[m] >= nums[i]) {
-                    r = m;
-                } else {
-                    l = m+1;
-                }
+        return sol1(nums);
+    }
+    
+    int sol1(vector<int>& nums) {
+        vector<int> dp(nums.size(), 1);
+        int result = 1;
+        for (int i = 1; i < dp.size(); ++i) {
+            for (int j = 0; j < i; ++j) {
+                if (nums[i] > nums[j]) {
+                    dp[i] = max(dp[i], dp[j]+1);
+                }       
             }
-            if (dp[l] >= nums[i]) {
-                dp[l] = nums[i];
-            } else if (dp[r] >= nums[i]) {
-                dp[r] = nums[i];
-            } else {
-                dp.push_back(nums[i]);
-            }
+            result = max(result, dp[i]);
         }
-        return dp.size();
+        return result;
     }
 };
