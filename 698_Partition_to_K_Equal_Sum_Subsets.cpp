@@ -1,53 +1,40 @@
-static int __ = []() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-	std::cout.tie(nullptr);
-	return 0;
-}();
-
 class Solution {
 public:
-    bool solve(const vector<int>& nums, vector<bool>& v, int k, const int& target, int s, int start) {
-        if (0 == k) {
+    bool canPartitionKSubsets(vector<int>& nums, int k) {
+        unsigned int target = accumulate(nums.begin(), nums.end(), 0);
+        if (target%k != 0) {
+            return false;
+        }
+        target /= k;
+        sort(nums.begin(), nums.end());
+        reverse(nums.begin(), nums.end());
+        vector<bool> visited(nums.size(), false);
+        return dfs(nums, visited, 0, 0, target, 0, k);
+    }
+    
+    bool dfs(const vector<int>& nums, vector<bool>& visited, int i, int sum, int target, int n, int k) {
+        if (n == k) {
             return true;
         }
-        for (int i = start; i < nums.size(); ++i) {
-            if (v[i]) {
+        if (sum == target) {
+            return dfs(nums, visited, 0, 0, target, n+1, k);
+        }
+        if (sum > target) {
+            return false;
+        }
+        for (int j = i; j < nums.size(); ++j) {
+            if (visited[j]) {
                 continue;
             }
-            if (nums[i]+s > target) {
-                return false;
+            visited[j] = true;
+            if (dfs(nums, visited, j+1, sum+nums[j], target, n, k)) {
+                return true;
             }
-            v[i] = true;
-            if (nums[i]+s == target) {
-                if (solve(nums, v, k-1, target, 0, 0)) {
-                    return true;
-                }
-                v[i] = false;
-                return false;
-            } else {
-                if (solve(nums, v, k, target, s+nums[i], i+1)) {
-                    return true;
-                }
-                v[i] = false;
+            visited[j] = false;
+            while (j+1 < nums.size() && nums[j+1] == nums[j]) {
+                ++j;
             }
         }
         return false;
-    }
-    
-    bool canPartitionKSubsets(vector<int>& nums, int k) {
-        if (1 == k) {
-            return true;
-        }
-        int sum = 0;
-        for (auto n:nums) {
-            sum += n;
-        }
-        if (0 != sum%k) {
-            return false;
-        }
-        vector<bool> v(nums.size(), false);
-        sort(nums.begin(), nums.end());
-        return solve(nums, v, k, sum/k, 0, 0);
     }
 };
