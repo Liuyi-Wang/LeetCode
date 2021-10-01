@@ -19,7 +19,19 @@ LeetCode journey
     1293. Shortest Path in a Grid with Obstacles Elimination
 
 ## Binary Search
+	153. Find Minimum in Rotated Sorted Array
     1428. Leftmost Column with at Least a One
+### Guess(precision)
+	774. Minimize Max Distance to Gas Station
+    
+## Bit
+### Status
+	1239. Maximum Length of a Concatenated String with Unique Characters
+
+## Boyer-Moore majority vote algorithm
+
+## Convert
+	978. Longest Turbulent Subarray
 
 ## Dynamic Programming
 ### Accumulated Sum
@@ -56,6 +68,9 @@ LeetCode journey
 #### Prim's algorithm
 #### Kruskal's algorithm
     1135. Connecting Cities With Minimum Cost
+
+## Greedy
+	261. Graph Valid Tree
 
 ## Union-Find
     261. Graph Valid Tree
