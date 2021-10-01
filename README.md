@@ -18,6 +18,13 @@ LeetCode journey
     1263. Minimum Moves to Move a Box to Their Target Location
     1293. Shortest Path in a Grid with Obstacles Elimination
 
+## Binary Search
+    1428. Leftmost Column with at Least a One
+
+## Dynamic Programming
+### 1. Two Strings
+    1143. Longest Common Subsequence
+
 ## Graph
 ### 1. Convex Hull
 #### Monotone Chain
