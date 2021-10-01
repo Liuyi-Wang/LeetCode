@@ -71,6 +71,42 @@ LeetCode journey
 
 ## Greedy
 	261. Graph Valid Tree
+	
+## Math
+### Distance
+	296. Best Meeting Point
+	
+## Segment Tree
+	307. Range Sum Query - Mutable
+	1526. Minimum Number of Increments on Subarrays to Form a Target Array
+	1649. Create Sorted Array through Instructions
+	218. The Skyline Problem
+	
+## Serialization and Deserialization
+	331. Verify Preorder Serialization of a Binary Tree
+	
+## Sliding Window
+	1610. Maximum Number of Visible Points
+	1703. Minimum Adjacent Swaps for K Consecutive Ones
+	2009. Minimum Number of Operations to Make Array Continuous
+	
+## Stack
+	1776. Car Fleet II
+	
+## Sweeping Line
+	218. The Skyline Problem
+	850. Rectangle Area II
+	
+## Tree
+### Traversal
+### Inorder
+	653. Two Sum IV - Input is a BST
+	
+## Trie(prefix search)
+	588. Design In-Memory File System
+	642. Design Search Autocomplete System
+### Pruning
+	212. Word Search II
 
 ## Union-Find
     261. Graph Valid Tree
