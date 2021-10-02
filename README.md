@@ -53,8 +53,10 @@ LeetCode journey
     276. Paint Fence
     1463. Cherry Pickup II
 ### Current state depends on multi choices
-	174. Dungeon Game
     313. Super Ugly Number
+#### From end to start
+	174. Dungeon Game
+	656. Coin Path
 ### Two Strings
     115. Distinct Subsequences
     1143. Longest Common Subsequence
