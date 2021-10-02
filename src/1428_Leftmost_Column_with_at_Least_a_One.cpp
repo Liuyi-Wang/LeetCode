@@ -15,6 +15,9 @@ public:
         int m = d[0], n = d[1];
         int result = -1;
         for (int i = 0; i < m; ++i) {
+			if (result != -1 && binaryMatrix.get(i, result) == 0) {
+                continue;
+            }
             int l = binarySearch(binaryMatrix, i, result, n);
             if (l != -1) {
                 result = l;

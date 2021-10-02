@@ -49,10 +49,11 @@ LeetCode journey
     1406. Stone Game III
 ### Subsequence
     446. Arithmetic Slices II - Subsequence
-### Transform depends on last state
+### Current round depends on last round
     276. Paint Fence
     1463. Cherry Pickup II
-### Transform depends on multi states
+### Current state depends on multi choices
+	174. Dungeon Game
     313. Super Ugly Number
 ### Two Strings
     115. Distinct Subsequences
