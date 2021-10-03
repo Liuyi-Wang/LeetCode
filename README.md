@@ -33,6 +33,9 @@ LeetCode journey
 ## Convert
 	978. Longest Turbulent Subarray
 
+## Divide and Conquer
+	53. Maximum Subarray
+
 ## Dynamic Programming
 ### Accumulated Sum
     325. Maximum Size Subarray Sum Equals k
@@ -53,6 +56,7 @@ LeetCode journey
     276. Paint Fence
     1463. Cherry Pickup II
 ### Current state depends on multi choices
+	53. Maximum Subarray
     313. Super Ugly Number
 #### From end to start
 	174. Dungeon Game
