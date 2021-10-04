@@ -57,6 +57,7 @@ LeetCode journey
     1463. Cherry Pickup II
 ### Current state depends on multi choices
 	53. Maximum Subarray
+	152. Maximum Product Subarray
     313. Super Ugly Number
 #### From end to start
 	174. Dungeon Game
