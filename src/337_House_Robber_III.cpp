@@ -1,38 +1,33 @@
-static int __ = []() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-	std::cout.tie(nullptr);
-	return 0;
-}();
-
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;
  *     TreeNode *left;
  *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
 class Solution {
 public:
-    void solve(TreeNode* root, int &rob, int &notRob) {
-        if (NULL == root) {
-            rob = 0;
-            notRob = 0;
-            return;
-        }
-        int lrob = 0, lnotRob = 0, rrob = 0, rnotRob = 0;
-        solve(root->left, lrob, lnotRob);
-        solve(root->right, rrob, rnotRob);
-        rob = root->val+lnotRob+rnotRob;
-        notRob = max(lrob, lnotRob)+max(rrob, rnotRob);
+    int rob(TreeNode* root) {
+        pair<int, int> p = sol1(root);
+        return max(p.first, p.second);
     }
     
-    int rob(TreeNode* root) {
-        int rob = 0;
-        int notRob = 0;
-        solve(root, rob, notRob);
-        return max(rob, notRob);
+    pair<int, int> sol1(TreeNode* root) {
+        pair<int, int> pl = {0, 0};
+        if (root->left) {
+            pl = sol1(root->left);
+        }
+        pair<int, int> pr = {0, 0};
+        if (root->right) {
+            pr = sol1(root->right);
+        }
+        pair<int, int> p;
+        p.first = root->val+pl.second+pr.second;
+        p.second = max(pl.first, pl.second)+max(pr.first, pr.second);
+        return p;
     }
 };
