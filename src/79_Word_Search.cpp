@@ -1,54 +1,49 @@
-static int __ = []() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-	std::cout.tie(nullptr);
-	return 0;
-}();
-
 class Solution {
 public:
-    bool find(int r, int c, vector<vector<char>> &board, const string &word, int n) {
-        if (word.size() == n) {
-            return true;
-        }
-        for (int i = 0; i < d_r.size(); ++i) {
-            int R = r+d_r[i];
-            int C = c+d_c[i];
-            if (R < 0 || C < 0 || R >= board.size() || C >= board[0].size()) {
-                continue;
-            }
-            if (word[n] != board[R][C]) {
-                continue;
-            }
-            char l = board[R][C];
-            board[R][C] = ' ';
-            if (find(R, C, board, word, n+1)) {
-                return true;
-            }
-            board[R][C] = l;
-        }
-        return false;
-    }
-    
     bool exist(vector<vector<char>>& board, string word) {
-        d_r = {-1, 0, 1, 0};
-        d_c = {0, 1, 0, -1};
-        for (int i = 0; i < board.size(); ++i) {
-            for (int j = 0; j < board[0].size(); ++j) {
-                if (word[0] == board[i][j]) {
-                    char l = board[i][j];
-                    board[i][j] = ' ';
-                    if (find(i, j, board, word, 1)) {
+        d_m = board.size();
+        d_n = board[0].size();
+        d_directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        for (int i = 0; i < d_m; ++i) {
+            for (int j = 0; j < d_n; ++j) {
+                if (board[i][j] == word[0]) {
+                    char c = board[i][j];
+                    board[i][j] = '#';
+                    if (sol1(board, word, i, j, 1)) {
                         return true;
                     }
-                    board[i][j] = l;
+                    board[i][j] = c;
                 }
             }
         }
         return false;
     }
     
+    bool sol1(vector<vector<char>>& board, const string& word, int i, int j, int w) {
+        if (w == word.size()) {
+            return true;
+        }
+        for (int k = 0; k < 4; ++k) {
+            int I = i+d_directions[k].first;
+            int J = j+d_directions[k].second;
+            if (I < 0 || J < 0 || I >= d_m || J >= d_n) {
+                continue;
+            }
+            if (board[I][J] != word[w]) {
+                continue;
+            }
+            char c = board[I][J];
+            board[I][J] = '#';
+            if (sol1(board, word, I, J, w+1)) {
+                return true;
+            }
+            board[I][J] = c;
+        }
+        return false;
+    }
+    
 private:
-    vector<int> d_r;
-    vector<int> d_c;
+    int d_m;
+    int d_n;
+    vector<pair<int, int>> d_directions;
 };

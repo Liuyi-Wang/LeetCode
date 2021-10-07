@@ -2,11 +2,12 @@
 LeetCode journey
 
 ## Backtracking
-### 1. Previous state
+	79. Word Search
+### Previous state
     282. Expression Add Operators
-### 2. Memo
+### Memo
     140. Word Break II
-### 3. Pruning
+### Pruning
     698. Partition to K Equal Sum Subsets
     
 ## BFS
