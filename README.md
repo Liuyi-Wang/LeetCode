@@ -11,11 +11,11 @@ LeetCode journey
     698. Partition to K Equal Sum Subsets
     
 ## BFS
-### 1. Deque
+### Deque
     1263. Minimum Moves to Move a Box to Their Target Location
-### 2. Reverse
+### Reverse
     317. Shortest Distance from All Buildings
-### 3. Status
+### Status
     1263. Minimum Moves to Move a Box to Their Target Location
     1293. Shortest Path in a Grid with Obstacles Elimination
 
@@ -115,6 +115,7 @@ LeetCode journey
 	653. Two Sum IV - Input is a BST
 	
 ## Trie(prefix search)
+	208. Implement Trie (Prefix Tree)
 	588. Design In-Memory File System
 	642. Design Search Autocomplete System
 ### Pruning

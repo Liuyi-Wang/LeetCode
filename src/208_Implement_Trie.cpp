@@ -8,46 +8,53 @@ public:
         }
     };
     
-    /** Initialize your data structure here. */
     Trie() {
         d_root = new Node();
     }
     
-    /** Inserts a word into the trie. */
+    void insertTrie(Node* node, const string& word, int i) {
+        if (i == word.size()) {
+            node->d_end = true;
+            return;
+        }
+        if (NULL == node->d_children[word[i]-'a']) {
+            node->d_children[word[i]-'a'] = new Node();
+        }
+        insertTrie(node->d_children[word[i]-'a'], word, i+1);
+    }
+    
+    bool searchTrie(Node* node, const string& word, int i) {
+        if (i == word.size()) {
+            return node->d_end;
+        }
+        if (NULL == node->d_children[word[i]-'a']) {
+            return false;
+        }
+        return searchTrie(node->d_children[word[i]-'a'], word, i+1);
+    }
+    
+    bool searchWithTrie(Node* node, const string& word, int i) {
+        if (i == word.size()) {
+            return true;
+        }
+        if (NULL == node->d_children[word[i]-'a']) {
+            return false;
+        }
+        return searchWithTrie(node->d_children[word[i]-'a'], word, i+1);
+    }
+    
     void insert(string word) {
-        Node* node = d_root;
-        for (int i = 0; i < word.size(); ++i) {
-            if (NULL == node->d_children[word[i]-'a']) {
-                node->d_children[word[i]-'a'] = new Node();
-            }
-            node = node->d_children[word[i]-'a'];
-        }
-        node->d_end = true;
+        insertTrie(d_root, word, 0);
     }
     
-    /** Returns if the word is in the trie. */
     bool search(string word) {
-        Node* node = d_root;
-        for (int i = 0; i < word.size(); ++i) {
-            if (NULL == node->d_children[word[i]-'a']) {
-                return false;
-            }
-            node = node->d_children[word[i]-'a'];
-        }
-        return node->d_end;
+        return searchTrie(d_root, word, 0);
     }
     
-    /** Returns if there is any word in the trie that starts with the given prefix. */
     bool startsWith(string prefix) {
-        Node* node = d_root;
-        for (int i = 0; i < prefix.size(); ++i) {
-            if (NULL == node->d_children[prefix[i]-'a']) {
-                return false;
-            }
-            node = node->d_children[prefix[i]-'a'];
-        }
-        return true;
+        return searchWithTrie(d_root, prefix, 0);
     }
+    
 private:
     Node* d_root;
 };
