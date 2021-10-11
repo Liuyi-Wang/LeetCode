@@ -28,6 +28,8 @@ LeetCode journey
 ## Bit
 ### Status
 	1239. Maximum Length of a Concatenated String with Unique Characters
+### Operation
+	201. Bitwise AND of Numbers Range
 
 ## Boyer-Moore majority vote algorithm
 

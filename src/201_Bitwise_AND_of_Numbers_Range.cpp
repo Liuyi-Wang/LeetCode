@@ -1,19 +1,14 @@
-static int __ = []() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-	std::cout.tie(nullptr);
-	return 0;
-}();
-
 class Solution {
 public:
-    int rangeBitwiseAnd(int m, int n) {
+    int rangeBitwiseAnd(int left, int right) {
+        int result = 0;
         int i = 0;
-        while (m != n) {
+        while ((left>>i) != 0 && (right>>i) != 0) {
+            if ((left>>i) == (right>>i)) {
+                result = max(result, ((left>>i)<<i));
+            }
             ++i;
-            m >>= 1;
-            n >>= 1;
         }
-        return m<<i;
+        return result;
     }
 };
