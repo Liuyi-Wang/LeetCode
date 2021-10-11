@@ -1,40 +1,33 @@
-static int __ = []() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-	std::cout.tie(nullptr);
-	return 0;
-}();
-
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;
  *     TreeNode *left;
  *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
 class Solution {
 public:
-    int solve(TreeNode* root) {
-        if (NULL == root) {
-            return 0;
-        }
-        int l = solve(root->left);
-        int r = solve(root->right);
-        d_result = max(d_result, l+r+1);
-        return max(l, r)+1;
-    }
-    
     int diameterOfBinaryTree(TreeNode* root) {
-        if (NULL == root) {
-            return 0;
-        }
-        d_result = 0;
-        solve(root);
-        return d_result-1;
+        int l = 0;
+        return solve(root, l);
     }
     
-private:
-    int d_result;
+    int solve(TreeNode* root, int &len) {
+        if (root == NULL) {
+            return 0;
+        }
+        if (root->left == NULL && root->right == NULL) {
+            return 0;
+        }
+        int l = 0, r = 0;
+        int l_r = solve(root->left, l);
+        int r_r = solve(root->right, r);
+        len = 1+max(l, r);
+        int result = l+r+(root->left?1:0)+(root->right?1:0);
+        return max(r_r, max(result, l_r));
+    }
 };
