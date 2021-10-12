@@ -67,6 +67,7 @@ LeetCode journey
     313. Super Ugly Number
 	337. House Robber III
 	377. Combination Sum IV
+	920. Number of Music Playlists
 #### From end to start
 	174. Dungeon Game
 	656. Coin Path
