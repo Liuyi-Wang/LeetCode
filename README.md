@@ -120,6 +120,8 @@ LeetCode journey
 	653. Two Sum IV - Input is a BST
 ### PostOrder
 	543. Diameter of Binary Tree
+### PreOrder
+	1008. Construct Binary Search Tree from Preorder Traversal
 	
 ## Trie(prefix search)
 	208. Implement Trie (Prefix Tree)
