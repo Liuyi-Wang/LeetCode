@@ -58,6 +58,7 @@ LeetCode journey
     446. Arithmetic Slices II - Subsequence
 	940. Distinct Subsequences II
 	1216. Valid Palindrome III
+	1987. Number of Unique Good Subsequences
 ### Current round depends on last round
     276. Paint Fence
     1463. Cherry Pickup II
