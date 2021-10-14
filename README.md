@@ -65,6 +65,7 @@ LeetCode journey
 	53. Maximum Subarray
 	70. Climbing Stairs
 	152. Maximum Product Subarray
+	279. Perfect Squares
     313. Super Ugly Number
 	337. House Robber III
 	377. Combination Sum IV
