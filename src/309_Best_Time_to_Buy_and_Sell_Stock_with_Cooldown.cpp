@@ -1,23 +1,15 @@
-static int __ = []() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-	std::cout.tie(nullptr);
-	return 0;
-}();
-
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
-        if (0 == prices.size()) {
-            return 0;
+        int S = 0, U = 1, H = 2;
+        int n = prices.size();
+        vector<vector<int>> dp(n, vector<int>(3, 0));
+        dp[0][H] = -prices[0];
+        for (int i = 1; i < n; ++i) {
+            dp[i][S] = dp[i-1][H]+prices[i];
+            dp[i][U] = max(dp[i-1][U], dp[i-1][S]);
+            dp[i][H] = max(dp[i-1][H], dp[i-1][U]-prices[i]);
         }
-        vector<int> b(prices.size()+1, 0);
-        vector<int> s(prices.size()+1, 0);
-        b[1] = -prices[0];
-        for (int i = 1; i < prices.size(); ++i) {
-            b[i+1] = max(b[i], s[i-1]-prices[i]);
-            s[i+1] = max(s[i], b[i]+prices[i]);
-        }
-        return s.back();
+        return max(dp.back()[S], dp.back()[U]);
     }
 };

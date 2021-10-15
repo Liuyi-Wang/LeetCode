@@ -46,20 +46,6 @@ LeetCode journey
     325. Maximum Size Subarray Sum Equals k
 	926. Flip String to Monotone Increasing
 	1277. Count Square Submatrices with All Ones
-### Focus on last element of range
-    546. Remove Boxes
-### Graph
-    1548. The Most Similar Path in a Graph
-### Meno
-    95. Unique Binary Search Trees II
-    834. Sum of Distances in Tree
-### Min-max decision
-    1406. Stone Game III
-### Subsequence
-    446. Arithmetic Slices II - Subsequence
-	940. Distinct Subsequences II
-	1216. Valid Palindrome III
-	1987. Number of Unique Good Subsequences
 ### Current round depends on last round
     276. Paint Fence
     1463. Cherry Pickup II
@@ -75,6 +61,22 @@ LeetCode journey
 #### From end to start
 	174. Dungeon Game
 	656. Coin Path
+### Find status
+	309. Best Time to Buy and Sell Stock with Cooldown
+### Focus on last element of range
+    546. Remove Boxes
+### Graph
+    1548. The Most Similar Path in a Graph
+### Meno
+    95. Unique Binary Search Trees II
+    834. Sum of Distances in Tree
+### Min-max decision
+    1406. Stone Game III
+### Subsequence
+    446. Arithmetic Slices II - Subsequence
+	940. Distinct Subsequences II
+	1216. Valid Palindrome III
+	1987. Number of Unique Good Subsequences
 ### Two Strings
     115. Distinct Subsequences
     1143. Longest Common Subsequence
