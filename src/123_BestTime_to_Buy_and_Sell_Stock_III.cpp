@@ -1,30 +1,24 @@
-static int __ = []() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-	std::cout.tie(nullptr);
-	return 0;
-}();
-
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
-        if (0 == prices.size()) {
-            return 0;
-        }
-        vector<int> l(prices.size(), 0);
-        int p = 0, low = prices[0];
-        for (int i = 0; i < prices.size(); ++i) {
+        return sol1(prices);
+    }
+    
+    int sol1(const vector<int>& prices) {
+        int n = prices.size();
+        vector<int> l2r(n, 0);
+        int low = prices[0];
+        for (int i = 1; i < n; ++i) {
+            l2r[i] = max(l2r[i-1], prices[i]-low);
             low = min(low, prices[i]);
-            p = max(p, prices[i]-low);
-            l[i] = p;
         }
-        p = 0;
         int high = prices.back();
-        int result = 0;
-        for (int i = prices.size()-1; i >= 0; --i) {
+        int result = l2r.back();
+        int profit = 0;
+        for (int i = n-2; i >= 0; --i) {
+            profit = max(profit, high-prices[i]);
             high = max(high, prices[i]);
-            p = max(p, high-prices[i]);
-            result = max(result, l[i]+p);
+            result = max(result, l2r[i]+profit);
         }
         return result;
     }
