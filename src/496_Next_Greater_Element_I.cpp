@@ -1,33 +1,25 @@
-static int __ = []() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-	std::cout.tie(nullptr);
-	return 0;
-}();
-
 class Solution {
 public:
     vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
-        if (0 == nums1.size() || 0 == nums2.size()) {
-            return {};
+        int n1 = nums1.size(), n2 = nums2.size();
+        vector<int> v(n2, -1);
+        stack<int> stk;
+        stk.push(nums2.back());
+        unordered_map<int, int> num2i;
+        num2i[nums2.back()] = n2-1;
+        for (int i = n2-2; i >= 0; --i) {
+            num2i[nums2[i]] = i;
+            while (!stk.empty() && stk.top() < nums2[i]) {
+                stk.pop();
+            }
+            if (!stk.empty()) {
+                v[i] = stk.top();
+            }
+            stk.push(nums2[i]);
         }
-        stack<int> s;
-        s.push(nums2.back());
-        unordered_map<int, int> hash;
-        for (int i = nums2.size()-2; i >= 0; --i) {
-            while (!s.empty() && s.top() <= nums2[i]) {
-                s.pop();
-            }
-            if (!s.empty()) {
-                hash[nums2[i]] = s.top();
-            }
-            s.push(nums2[i]);
-        }
-        vector<int> result(nums1.size(), -1);
-        for (int i = 0; i < nums1.size(); ++i) {
-            if (hash.find(nums1[i]) != hash.end()) {
-                result[i] = hash[nums1[i]];
-            }
+        vector<int> result(n1, -1);
+        for (int i = 0; i < n1; ++i) {
+            result[i] = v[num2i[nums1[i]]];
         }
         return result;
     }
