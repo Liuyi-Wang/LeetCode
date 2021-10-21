@@ -1,50 +1,46 @@
-static int __ = []() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-	std::cout.tie(nullptr);
-	return 0;
-}();
-
 class RandomizedSet {
 public:
-    /** Initialize your data structure here. */
     RandomizedSet() {
+        d_len = 0;
     }
     
-    /** Inserts a value to the set. Returns true if the set did not already contain the specified element. */
     bool insert(int val) {
-        if (hash.find(val) == hash.end()) {
-            nums.push_back(val);
-            hash[val] = nums.size()-1;
+        if (val2i.find(val) == val2i.end()) {
+            if (d_len == d_v.size()) {
+                d_v.push_back(val);
+            } else {
+                d_v[d_len] = val;
+            }
+            val2i[val] = d_len++;
             return true;
-        }
-        return false;
-    }
-    
-    /** Removes a value from the set. Returns true if the set contained the specified element. */
-    bool remove(int val) {
-        if (hash.find(val) == hash.end()) {
+        } else {
             return false;
         }
-        int i = hash[val];
-        hash.erase(hash.find(val));
-        swap(nums.back(), nums[i]);
-        nums.pop_back();
-        if (i < nums.size()) {
-            hash[nums[i]] = i;
-        }    
-        return true;
     }
     
-    /** Get a random element from the set. */
+    bool remove(int val) {
+        if (val2i.find(val) != val2i.end()) {
+            --d_len;
+            int t = d_v[d_len];
+            int i = val2i[val];
+            swap(d_v[d_len], d_v[val2i[val]]);
+            val2i[t] = i;
+            val2i.erase(val2i.find(val));
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
     int getRandom() {
-        int i = rand()%nums.size();
-        return nums[i];
+        int r = rand();
+        return d_v[r%d_len];
     }
     
 private:
-    unordered_map<int, int> hash;
-    vector<int> nums;
+    vector<int> d_v;
+    unordered_map<int, int> val2i;
+    int d_len;
 };
 
 /**

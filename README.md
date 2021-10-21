@@ -38,6 +38,9 @@ LeetCode journey
 ## Convert
 	978. Longest Turbulent Subarray
 
+## Desgin
+	380. Insert Delete GetRandom O(1)
+
 ## Divide and Conquer
 	53. Maximum Subarray
 
@@ -47,14 +50,14 @@ LeetCode journey
 	926. Flip String to Monotone Increasing
 	1277. Count Square Submatrices with All Ones
 ### Current round depends on last round
+	198. House Robber
+	213. House Robber II
     276. Paint Fence
     1463. Cherry Pickup II
 ### Current state depends on multi choices
 	53. Maximum Subarray
 	70. Climbing Stairs
 	152. Maximum Product Subarray
-	198. House Robber
-	213. House Robber II
 	279. Perfect Squares
     313. Super Ugly Number
 	337. House Robber III
