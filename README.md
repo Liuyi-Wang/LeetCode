@@ -55,6 +55,7 @@ LeetCode journey
 	265. Paint House II
     276. Paint Fence
     1463. Cherry Pickup II
+	1473. Paint House III
 ### Current state depends on multi choices
 	53. Maximum Subarray
 	70. Climbing Stairs
