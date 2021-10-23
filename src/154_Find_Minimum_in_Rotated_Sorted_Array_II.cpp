@@ -1,31 +1,42 @@
-static int __ = []() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-	std::cout.tie(nullptr);
-	return 0;
-}();
-
 class Solution {
 public:
     int findMin(vector<int>& nums) {
-        int l = 0, r = nums.size()-1;
-        while (l+1 < r) {
-            if (nums[l] < nums[r]) {
-                r= l;
-                break;
-            }
-            int m = l+(r-l)/2;
-            if (nums[l] > nums[m]) {
-                r = m;
-            } else if (nums[l] < nums[m]) {
-                l = m+1;
-            } else {
-                ++l;
-                while (l < m && nums[l] == nums[m]) {
-                    ++l;
-                }
-            }
+        return binarySearch(nums, 0, nums.size()-1);
+    }
+    
+    int binarySearch(const vector<int>& nums, int begin, int end) {
+        if (begin == end) {
+            return nums[begin];
         }
-        return min(nums[l], nums[r]);
+        int mid = begin+(end-begin)/2;
+        if (nums[begin] < nums[mid] && nums[mid] < nums[end]) {
+            return nums[begin];
+        }
+        if (nums[begin] > nums[mid] && nums[mid] > nums[end]) {
+            return nums[end];
+        }
+        if (nums[begin] < nums[mid] && nums[mid] > nums[end]) {
+            return binarySearch(nums, mid+1, end);
+        }
+        if (nums[begin] > nums[mid] && nums[mid] < nums[end]) {
+            return binarySearch(nums, begin+1, mid);
+        }
+        if (nums[begin] == nums[mid] && nums[mid] < nums[end]) {
+            return nums[mid];
+        }
+        if (nums[begin] == nums[mid] && nums[mid] > nums[end]) {
+            return binarySearch(nums, mid+1, end);
+        }
+        if (nums[begin] < nums[mid] && nums[mid] == nums[end]) {
+            return nums[begin];
+        }
+        if (nums[begin] > nums[mid] && nums[mid] == nums[end]) {
+            return binarySearch(nums, begin+1, mid);
+        }
+        int result = INT_MAX;
+        for (int i = begin; i <= end; ++i) {
+            result = min(result, nums[i]);
+        }
+        return result;
     }
 };
