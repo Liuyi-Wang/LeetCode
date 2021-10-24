@@ -80,6 +80,7 @@ LeetCode journey
 ### Min-max decision
     1406. Stone Game III
 ### Subsequence
+	376. Wiggle Subsequence
     446. Arithmetic Slices II - Subsequence
 	940. Distinct Subsequences II
 	1216. Valid Palindrome III
