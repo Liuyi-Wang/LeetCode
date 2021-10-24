@@ -4,27 +4,32 @@
  *     int val;
  *     TreeNode *left;
  *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
 class Solution {
 public:
-    int getHeight(TreeNode* root) {
-        if (NULL == root) {
-            return 0;
-        }
-        return getHeight(root->left)+1;
-    }
-    
     int countNodes(TreeNode* root) {
-        if (NULL == root) {
+        if (!root) {
             return 0;
         }
-        int lh = getHeight(root->left);
-        int rh = getHeight(root->right);
-        if (lh == rh) {
-            return (1<<lh)-1+countNodes(root->right)+1;
+        int l = 0;
+        TreeNode* node = root->left;
+        while (node) {
+            ++l;
+            node = node->left;
         }
-        return (1<<rh)-1+countNodes(root->left)+1;
+        int r = 0;
+        node = root->right;
+        while (node) {
+            ++r;
+            node = node->left;
+        }
+        if (l == r) {
+            return pow(2, l)+countNodes(root->right);
+        }
+        return countNodes(root->left)+pow(2, r);
     }
 };

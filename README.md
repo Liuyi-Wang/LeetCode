@@ -21,6 +21,7 @@ LeetCode journey
 
 ## Binary Search
 	153. Find Minimum in Rotated Sorted Array
+	222. Count Complete Tree Nodes
 	302. Smallest Rectangle Enclosing Black Pixels
 	374. Guess Number Higher or Lower
     1428. Leftmost Column with at Least a One
