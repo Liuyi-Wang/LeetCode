@@ -1,48 +1,49 @@
-static int __ = []() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-	std::cout.tie(nullptr);
-	return 0;
-}();
-
+/**
+ *  Intuition
+ *  Only the top element of stack can be operated on.
+ */
 class MinStack {
 public:
-    /** initialize your data structure here. */
     MinStack() {
         
     }
     
-    void push(int x) {
-        d_s.push(x);
-        if (d_m.empty() || x <= d_m.top()) {
-            d_m.push(x);
+    void push(int val) {
+        d_stack.push(val);
+        if (d_min.empty() || d_min.top().first > val) {
+            d_min.push({val, 1});
+        } else if (!d_min.empty() && d_min.top().first == val) {
+            ++d_min.top().second;
         }
     }
     
     void pop() {
-        if (!d_m.empty() && d_m.top() == d_s.top()) {
-            d_m.pop();
+        if (!d_min.empty() && d_min.top().first == d_stack.top()) {
+            --d_min.top().second;
+            if (d_min.top().second == 0) {
+                d_min.pop();
+            }
         }
-        d_s.pop();
+        d_stack.pop();
     }
     
     int top() {
-        return d_s.top();
+        return d_stack.top();
     }
     
     int getMin() {
-        return d_m.top();
+        return d_min.top().first;
     }
-
+    
 private:
-    stack<int> d_s;
-    stack<int> d_m;
+    stack<int> d_stack;
+    stack<pair<int, int>> d_min;
 };
 
 /**
  * Your MinStack object will be instantiated and called as such:
  * MinStack* obj = new MinStack();
- * obj->push(x);
+ * obj->push(val);
  * obj->pop();
  * int param_3 = obj->top();
  * int param_4 = obj->getMin();

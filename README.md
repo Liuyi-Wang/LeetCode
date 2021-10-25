@@ -40,6 +40,7 @@ LeetCode journey
 	978. Longest Turbulent Subarray
 
 ## Desgin
+	155. Min Stack
 	380. Insert Delete GetRandom O(1)
 
 ## Divide and Conquer
