@@ -1,33 +1,37 @@
-static int __ = []() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-	std::cout.tie(nullptr);
-	return 0;
-}();
-
+/**
+ * dp[i][k][s]
+ * s, U, H
+**/
 class Solution {
 public:
     int maxProfit(int k, vector<int>& prices) {
-        if (k >= int(prices.size())-1) {
+        if (k == 0) {
+            return 0;
+        }
+        int n = prices.size();
+        if (2*k >= n) {
             int result = 0;
-            for (int i = 1; i < prices.size(); ++i) {
-                result += max(prices[i]-prices[i-1], 0);
+            for (int i = 1; i < n; ++i) {
+                result += max(0, prices[i]-prices[i-1]);
             }
             return result;
         }
-        vector<int> on(prices.size(), 0);
-        vector<int> dp(prices.size(), 0);
-        for (int i = 0; i < k; ++i) {
-            vector<int> ton = on;
-            vector<int> tdp = dp;
-            for (int j = 1; j < prices.size(); ++j) {
-                int diff = prices[j]-prices[j-1];
-                ton[j] = max(ton[j-1]+diff, dp[j-1]+max(0, diff));
-                tdp[j] = max(ton[j], tdp[j-1]);
+        vector<vector<vector<long long>>> dp(n, vector<vector<long long>>(k+1, vector<long long>(2, INT_MIN)));
+        dp[0][0][0] = 0;
+        dp[0][1][1] = -prices[0];
+        for (int i = 1; i < n; ++i) {
+            for (int j = 0; j <= k; ++j) {
+                dp[i][j][0] = max(dp[i-1][j][0], dp[i-1][j][1]+prices[i]);
+                if (j == 0) {
+                    continue;
+                }
+                dp[i][j][1] = max(dp[i-1][j][1], dp[i-1][j-1][0]-prices[i]);
             }
-            on = ton;
-            dp = tdp;
         }
-        return dp.back();
+        long long result = 0;
+        for (int j = 0; j <= k; ++j) {
+            result = max(result, dp.back()[j][0]);
+        }
+        return result;
     }
 };
