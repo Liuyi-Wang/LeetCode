@@ -57,6 +57,8 @@ LeetCode journey
 	213. House Robber II
 	265. Paint House II
     276. Paint Fence
+	309. Best Time to Buy and Sell Stock with Cooldown
+	714. Best Time to Buy and Sell Stock with Transaction Fee
     1463. Cherry Pickup II
 	1473. Paint House III
 ### Current state depends on multi choices
@@ -71,8 +73,6 @@ LeetCode journey
 #### From end to start
 	174. Dungeon Game
 	656. Coin Path
-### Find status
-	309. Best Time to Buy and Sell Stock with Cooldown
 ### Focus on last element of range
     546. Remove Boxes
 ### Graph
