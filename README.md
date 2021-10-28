@@ -149,5 +149,8 @@ LeetCode journey
 ### Pruning
 	212. Word Search II
 
+## Two Pointers
+	15. 3Sum
+
 ## Union-Find
     261. Graph Valid Tree
