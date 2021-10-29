@@ -1,28 +1,31 @@
-static int __ = []() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-	std::cout.tie(nullptr);
-	return 0;
-}();
-
 class Solution {
 public:
     int findRotateSteps(string ring, string key) {
-        int m = key.size();
-        int n = ring.size();
-        vector<vector<int>> dp(m+1, vector<int>(n, 0));
-        for (int i = m-1; i >= 0; --i) {
-            for (int j = 0; j < n; ++j) {
-                dp[i][j] = INT_MAX;
-                for (int k = 0; k < n; ++k) {
-                    if (ring[k] == key[i]) {
-                        int steps = abs(k-j);
-                        steps = min(steps, n-steps);
-                        dp[i][j] = min(dp[i][j], steps+dp[i+1][k]);
-                    }
+        int m = key.size(), n = ring.size();
+        vector<vector<int>> hash = vector<vector<int>>(26, vector<int>());
+        for (int i = 0; i < ring.size(); ++i) {
+            hash[ring[i]-'a'].push_back(i);
+        }
+        vector<vector<int>> dp(m, vector<int>(n, INT_MAX));
+        vector<int> firstKey = hash[key[0]-'a'];
+        for (int i = 0; i < firstKey.size(); ++i) {
+            dp[0][firstKey[i]] = min(firstKey[i], n-firstKey[i]);
+        }
+        for (int i = 1; i < m; ++i) {
+            vector<int> currentKey = hash[key[i]-'a'];
+            vector<int> lastKey = hash[key[i-1]-'a'];
+            for (int j = 0; j < currentKey.size(); ++j) {
+                for (int k = 0; k < lastKey.size(); ++k) {
+                    int step = min(abs(currentKey[j]-lastKey[k]), n-abs(currentKey[j]-lastKey[k]))+dp[i-1][lastKey[k]];
+                    dp[i][currentKey[j]] = min(dp[i][currentKey[j]], step);
                 }
             }
         }
-        return dp[0][0]+m;
+        int result = INT_MAX;
+        vector<int> lastKey = hash[key.back()-'a'];
+        for (int j = 0; j < lastKey.size(); ++j) {
+            result = min(result, dp.back()[lastKey[j]]);
+        }
+        return result+key.size();
     }
 };
