@@ -1,61 +1,48 @@
 class Solution {
 public:
-    typedef pair<int, int> Cell;
-    
     int orangesRotting(vector<vector<int>>& grid) {
-        queue<Cell> q;
-        int fresh = 0;
-        map<pair<int, int>, int> m;
-        int result = 0;
-        for (int i = 0; i < grid.size(); ++i) {
-            for (int j = 0; j < grid[0].size(); ++j) {
-                if (1 == grid[i][j]) {
+        int m = grid.size(), n = grid[0].size();
+        int rotten = 0, fresh = 0;
+        queue<pair<int, int>> q;
+        for (int i = 0; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (grid[i][j] == 2) {
+                    ++rotten;
+                    q.push({i, j});
+                    grid[i][j] = -1;
+                } else if (grid[i][j] == 1) {
                     ++fresh;
-                } else if (2 == grid[i][j]) {
-                    q.push(Cell(i, j));
-                    m[Cell(i, j)] = 0;
                 }
             }
         }
-        if (0 == fresh) {
+        if (fresh == 0) {
             return 0;
         }
+        vector<vector<int>> directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        int count = 0;
+        int result = -1;
         while (!q.empty()) {
-            Cell c = q.front();
-            int i = c.first, j = c.second;
-            q.pop();
-            if (i < 0 || j < 0 || i >= grid.size() || j >= grid[0].size()) {
-                continue;
+            ++result;
+            int size = q.size();
+            for (int i = 0; i < size; ++i) {
+                pair<int, int> p = q.front();
+                q.pop();
+                for (int j = 0; j < directions.size(); ++j) {
+                    int X = p.first+directions[j][0];
+                    int Y = p.second+directions[j][1];
+                    if (X < 0 || Y < 0 || X >= m || Y >= n) {
+                        continue;
+                    }
+                    if (grid[X][Y] != 1) {
+                        continue;
+                    }
+                    ++count;
+                    grid[X][Y] = -1;
+                    q.push({X, Y});
+                }
             }
-            if (-1 == grid[i][j] || 0 == grid[i][j]) {
-                continue;
-            }
-            if (1 == grid[i][j]) {
-                result = max(result, m[c]);
-                grid[i][j] = 2;
-                --fresh;
-                q.push(c);
-                continue;
-            }
-            if (m.find(Cell(i-1, j)) == m.end()) {
-                q.push(Cell(i-1, j));
-                m[Cell(i-1, j)] = m[c]+1;
-            }
-            if (m.find(Cell(i+1, j)) == m.end()) {
-                q.push(Cell(i+1, j));
-                m[Cell(i+1, j)] = m[c]+1;
-            }
-            if (m.find(Cell(i, j-1)) == m.end()) {
-                q.push(Cell(i, j-1));
-                m[Cell(i, j-1)] = m[c]+1;
-            }
-            if (m.find(Cell(i, j+1)) == m.end()) {
-                q.push(Cell(i, j+1));
-                m[Cell(i, j+1)] = m[c]+1;
-            }
-            grid[i][j] = -1;
         }
-        if (0 != fresh) {
+        if (count != fresh) {
             return -1;
         }
         return result;
