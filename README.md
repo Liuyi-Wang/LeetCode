@@ -25,6 +25,7 @@ LeetCode journey
 	222. Count Complete Tree Nodes
 	302. Smallest Rectangle Enclosing Black Pixels
 	374. Guess Number Higher or Lower
+	1044. Longest Duplicate Substring
     1428. Leftmost Column with at Least a One
 ### Guess(precision)
 	774. Minimize Max Distance to Gas Station
