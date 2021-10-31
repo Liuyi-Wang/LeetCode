@@ -11,36 +11,33 @@ public:
 
 class Solution {
 public:
-    Node* solve(Node* head) {
-        if (NULL == head) {
+    Node* flatten(Node* head) {
+        if (!head) {
             return NULL;
         }
-        Node* node = head;
-        Node* tail = node;
-        while (node) {
-            if (node->child) {
-                Node* c = node->child;
-                Node* t = solve(c);
-                node->child = NULL;
-                Node* n = node->next;
-                node->next = c;
-                c->prev = node;
-                if (n) {
-                    t->next = n;
-                    n->prev = t;
-                }
-                tail = t;
-                node = n;
-            } else {
-                tail = node;
-                node = node->next;
-            }
+        stack<Node*> stk;
+        Node* result = new Node();
+        if (head) {
+            stk.push(head);
         }
-        return tail;
-    }
-    
-    Node* flatten(Node* head) {
-        solve(head);
-        return head;
+        Node* tail = result;
+        while (!stk.empty()) {
+            head = stk.top();
+            stk.pop();
+            if (head->next) {
+                stk.push(head->next);
+                head->next = NULL;
+            }
+            if (head->child) {
+                stk.push(head->child);
+                head->child = NULL;
+            }
+            tail->next = head;
+            head->prev = tail;
+            tail = head;
+        }
+        result = result->next;
+        result->prev = NULL;
+        return result;
     }
 };

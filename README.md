@@ -109,6 +109,10 @@ LeetCode journey
 ## Greedy
 	261. Graph Valid Tree
 	
+## List
+### Stack
+	430. Flatten a Multilevel Doubly Linked List
+
 ## Math
 ### Distance
 	296. Best Meeting Point
