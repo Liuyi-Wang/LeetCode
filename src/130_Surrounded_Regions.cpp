@@ -1,63 +1,57 @@
-static int __ = []() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-	std::cout.tie(nullptr);
-	return 0;
-}();
-
+/**
+ * Time Complexity:
+ * O(mn)
+ * Space Complexity:
+ * O(1)
+ */
 class Solution {
 public:
     void solve(vector<vector<char>>& board) {
-        if (0 == board.size() || 0 == board[0].size()) {
-            return;
-        }
         int m = board.size(), n = board[0].size();
-        queue<pair<int, int>> q;
+        d_directions = {{0, -1}, {0, 1}, {-1, 0}, {1, 0}};
         for (int i = 0; i < m; ++i) {
-            if ('O' == board[i][0]) {
-                board[i][0] = 'Y';
-                q.push({i, 0});
-            }
-            if ('O' == board[i][n-1]) {
-                board[i][n-1] = 'Y';
-                q.push({i, n-1});
-            }
+            dfs(board, i, 0);
+            dfs(board, i, n-1);
         }
-        for (int j = 1; j < n; ++j) {
-            if ('O' == board[0][j]) {
-                board[0][j] = 'Y';
-                q.push({0, j});
-            }
-            if ('O' == board[m-1][j]) {
-                board[m-1][j] = 'Y';
-                q.push({m-1, j});
-            }
-        }
-        vector<int> d_x = {-1, 0, 1, 0};
-        vector<int> d_y = {0, 1, 0, -1};
-        while (!q.empty()) {
-            int x = q.front().first;
-            int y = q.front().second;
-            q.pop();
-            for (int i = 0; i < d_x.size(); ++i) {
-                int X = x + d_x[i];
-                int Y = y + d_y[i];
-                if (X < 0 || Y < 0 || X >= m || Y >= n || 'O' != board[X][Y]) {
-                    continue;
-                }
-                board[X][Y] = 'Y';
-                q.push({X, Y});
-            }
+        for (int j = 1; j < n-1; ++j) {
+            dfs(board, 0, j);
+            dfs(board, m-1, j);
         }
         for (int i = 0; i < m; ++i) {
             for (int j = 0; j < n; ++j) {
-                if ('O' == board[i][j]) {
+                if (board[i][j] == 'O') {
                     board[i][j] = 'X';
-                }
-                if ('Y' == board[i][j]) {
+                } else if (board[i][j] == 'o') {
                     board[i][j] = 'O';
                 }
             }
         }
+        return;
     }
+    
+    void dfs(vector<vector<char>>& board, int i, int j) {
+        queue<pair<int, int>> q;
+        if (board[i][j] == 'O') {
+            board[i][j] = 'o';
+            q.push({i, j});
+        }
+        while (!q.empty()) {
+            pair<int, int> p = q.front();
+            q.pop();
+            for (int i = 0; i < d_directions.size(); ++i) {
+                int X = p.first+d_directions[i].first;
+                int Y = p.second+d_directions[i].second;
+                if (X < 0 || Y < 0 || X >= board.size() || Y >= board[0].size()) {
+                    continue;
+                }
+                if (board[X][Y] == 'O') {
+                    board[X][Y] = 'o';
+                    q.push({X, Y});
+                }
+            }
+        }
+    }
+    
+private:
+    vector<pair<int, int>> d_directions;
 };
