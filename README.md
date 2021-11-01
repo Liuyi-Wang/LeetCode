@@ -27,8 +27,9 @@ LeetCode journey
 	374. Guess Number Higher or Lower
 	1044. Longest Duplicate Substring
     1428. Leftmost Column with at Least a One
-### Guess(precision)
+### Guess
 	774. Minimize Max Distance to Gas Station
+	1231. Divide Chocolate
     
 ## Bit
 ### Status
