@@ -1,60 +1,54 @@
-static int __ = []() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-	std::cout.tie(nullptr);
-	return 0;
-}();
-
 class Solution {
 public:
-    void solve(vector<vector<int>>& grid, int si, int sj, int count) {
-        if (si == d_i && sj == d_j && count == d_count) {
-            ++d_result;
-            return;
-        }
-        if (si == d_i && sj == d_j) {
-            return;
-        }
-        grid[si][sj] = -2;
-        for (int x = 0; x < d_di.size(); ++x) {
-            int I = si+d_di[x];
-            int J = sj+d_dj[x];
-            if (I >= 0 && I < grid.size() && J >= 0 && J < grid[0].size() && grid[I][J] >= 0) {
-                solve(grid, I, J, count+1);
-            }
-        }
-        grid[si][sj] = 0;
-    }
-    
     int uniquePathsIII(vector<vector<int>>& grid) {
-        d_result = 0;
-        d_count = 2;
-        d_di = {-1, 0, 0, 1};
-        d_dj = {0, -1, 1, 0};
-        int m = grid.size(), n = grid[0].size();
-        int si, sj;
-        for (int i = 0; i < m; ++i) {
-            for (int j = 0; j < n; ++j) {
-                if (0 == grid[i][j]) {
-                    ++d_count;
-                } else if (1 == grid[i][j]) {
+        d_m = grid.size();
+        d_n = grid[0].size();
+        d_dp = vector<vector<vector<short>>>(d_m, vector<vector<short>>(d_n, vector<short>(1<<d_m*d_n, -1)));
+        d_directions = {{0, -1}, {0, 1}, {-1, 0}, {1, 0}};
+        int state = 0;
+        int si = -1, sj = -1;
+        for (int i = 0; i < d_m; ++i) {
+            for (int j = 0; j < d_n; ++j) {
+                if (grid[i][j] == 1) {
                     si = i;
                     sj = j;
-                } else if (2 == grid[i][j]) {
-                    d_i = i;
-                    d_j = j;
+                } else if (grid[i][j] == 0 || grid[i][j] == 2) {
+                    state |= key(i, j);
                 }
             }
         }
-        solve(grid, si, sj, 1);
-        return d_result;
+        return dfs(grid, si, sj, state);
+    }
+    
+    int key(int i, int j) {
+        return 1<<(i*d_n+j);
+    }
+    
+    int dfs(const vector<vector<int>>& grid, int i, int j, int state) {
+        if (grid[i][j] == 2) {
+            return state == 0;
+        }
+        if (d_dp[i][j][state] != -1) {
+            return d_dp[i][j][state];
+        }
+        int count = 0;
+        for (int k = 0; k < 4; ++k) {
+            int I = i+d_directions[k].first;
+            int J = j+d_directions[k].second;
+            if (I < 0 || J < 0 || I == d_m || J == d_n || grid[I][J] == -1) {
+                continue;
+            }
+            if (state&key(I, J)) {
+                count += dfs(grid, I, J, state^key(I, J));
+            }
+        }
+        d_dp[i][j][state] = count;
+        return count;
     }
     
 private:
-    int d_result;
-    int d_count;
-    int d_i;
-    int d_j;
-    vector<int> d_di;
-    vector<int> d_dj;
+    int d_m;
+    int d_n;
+    vector<vector<vector<short>>> d_dp;
+    vector<pair<int, int>> d_directions;
 };

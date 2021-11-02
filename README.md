@@ -33,10 +33,11 @@ LeetCode journey
 	1231. Divide Chocolate
     
 ## Bit
-### Status
-	1239. Maximum Length of a Concatenated String with Unique Characters
-### Operation
+### Manipulation
 	201. Bitwise AND of Numbers Range
+### Mask/Status
+	980. Unique Paths III
+	1239. Maximum Length of a Concatenated String with Unique Characters
 
 ## Boyer-Moore majority vote algorithm
 
@@ -87,6 +88,8 @@ LeetCode journey
     834. Sum of Distances in Tree
 ### Min-max decision
     1406. Stone Game III
+### Status
+	980. Unique Paths III
 ### Subsequence
 	376. Wiggle Subsequence
     446. Arithmetic Slices II - Subsequence
