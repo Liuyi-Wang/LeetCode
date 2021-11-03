@@ -1,4 +1,10 @@
 /**
+ *  Time Complexity:
+ *  O(n)
+ *  Space Complexity:
+ *  O(1)
+ */
+/**
  * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;
@@ -12,27 +18,25 @@
 class Solution {
 public:
     int sumNumbers(TreeNode* root) {
-        if (NULL == root) {
-            return 0;
-        }
-        int result = 0;
-        int number = 0;
-        recursion(root, result, number);
-        return result;
+        d_result = 0;
+        dfs(root, 0);
+        return d_result;
     }
     
-    void recursion(TreeNode* root, int& result, int& number) {
-        if (NULL == root->left && NULL == root->right) {
-            result += number*10+root->val;
+    void dfs(TreeNode* root, int sum) {
+        sum = sum*10+root->val;
+        if (root->left == NULL && root->right == NULL) {
+            d_result += sum;
             return;
         }
-        number = number*10+root->val;
         if (root->left) {
-            recursion(root->left, result, number);
+            dfs(root->left, sum);
         }
         if (root->right) {
-            recursion(root->right, result, number);
+            dfs(root->right, sum);
         }
-        number = (number-root->val)/10;
     }
+    
+private:
+    int d_result;
 };
