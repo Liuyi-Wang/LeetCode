@@ -148,6 +148,7 @@ LeetCode journey
 ## Tree
 ### Traversal
 	129. Sum Root to Leaf Numbers
+	404. Sum of Left Leaves
 ### InOrder
 	653. Two Sum IV - Input is a BST
 ### PostOrder
