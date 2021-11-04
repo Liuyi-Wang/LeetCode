@@ -1,9 +1,14 @@
+/**
+ *	Time:
+ *	O(n)
+ *  Space:
+ *  O(1)
+ */
 class Solution {
 public:
     int MODULE = 1e9+7;
     
     int checkRecord(int n) {
-        vector<vector<vector<int>>> dp(n, vector<vector<int>>(2, vector<int>(3, 0)));
         int dp00 = 1;
         int dp01 = 1;
         int dp02 = 0;
