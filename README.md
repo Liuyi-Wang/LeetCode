@@ -68,6 +68,7 @@ LeetCode journey
 	714. Best Time to Buy and Sell Stock with Transaction Fee
 	740. Delete and Earn
 	801. Minimum Swaps To Make Sequences Increasing
+	1223. Dice Roll Simulation
     1463. Cherry Pickup II
 	1473. Paint House III
 ### Current state depends on multi choices
