@@ -64,6 +64,7 @@ LeetCode journey
     276. Paint Fence
 	309. Best Time to Buy and Sell Stock with Cooldown
 	514. Freedom Trail
+	552. Student Attendance Record II
 	714. Best Time to Buy and Sell Stock with Transaction Fee
 	740. Delete and Earn
     1463. Cherry Pickup II
