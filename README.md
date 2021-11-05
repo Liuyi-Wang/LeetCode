@@ -70,6 +70,7 @@ LeetCode journey
 	740. Delete and Earn
 	801. Minimum Swaps To Make Sequences Increasing
 	1223. Dice Roll Simulation
+	1262. Greatest Sum Divisible by Three
     1463. Cherry Pickup II
 	1473. Paint House III
 ### Current state depends on multi choices
