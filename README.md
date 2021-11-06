@@ -72,6 +72,7 @@ LeetCode journey
 	801. Minimum Swaps To Make Sequences Increasing
 	1223. Dice Roll Simulation
 	1262. Greatest Sum Divisible by Three
+	1363. Largest Multiple of Three
     1463. Cherry Pickup II
 	1473. Paint House III
 ### Current state depends on multi choices
