@@ -1,74 +1,50 @@
+/**
+ *  Time:
+ *  O(n)
+ *  Space:
+ *  O(1)
+ */
 class Solution {
 public:
     int minNumberOfFrogs(string croakOfFrogs) {
+        int dpc = 0, dpr = 0, dpo = 0, dpa = 0, dpk = 0;
         int result = 0;
-        int c = 0, r = 0, o = 0, a = 0, k = 0;
-        for (auto n:croakOfFrogs) {
-            if ('c' == n) {
-                ++c;
-                if (c > 0 && r > 0 && o > 0 && a > 0 && k > 0) {
-                    --c;
-                    --r;
-                    --o;
-                    --a;
-                    --k;
-                }
-                result = max(result, c);
-            } else if ('r' == n) {
-                ++r;
-                if (r > c) {
+        for (auto c:croakOfFrogs) {
+            if (c == 'c') {
+                ++dpc;
+                result = max(result, dpc);
+            }
+            if (c == 'r') {
+                ++dpr;
+                if (dpr > dpc) {
                     return -1;
                 }
-                if (c > 0 && r > 0 && o > 0 && a > 0 && k > 0) {
-                    --c;
-                    --r;
-                    --o;
-                    --a;
-                    --k;
-                }
-                result = max(result, r);
-            } else if ('o' == n) {
-                ++o;
-                if (o > r || o > c) {
+            }
+            if (c == 'o') {
+                ++dpo;
+                if (dpo > dpr) {
                     return -1;
                 }
-                if (c > 0 && r > 0 && o > 0 && a > 0 && k > 0) {
-                    --c;
-                    --r;
-                    --o;
-                    --a;
-                    --k;
-                }
-                result = max(result, o);
-            } else if ('a' == n) {
-                ++a;
-                if (a > o || a > r || a > c) {
+            }
+            if (c == 'a') {
+                ++dpa;
+                if (dpa > dpo) {
                     return -1;
                 }
-                if (c > 0 && r > 0 && o > 0 && a > 0 && k > 0) {
-                    --c;
-                    --r;
-                    --o;
-                    --a;
-                    --k;
-                }
-                result = max(result, a);
-            } else if ('k' == n) {
-                ++k;
-                if (k > a || k > o || k > r || k > c) {
+            }
+            if (c == 'k') {
+                ++dpk;
+                if (dpk > dpa) {
                     return -1;
                 }
-                if (c > 0 && r > 0 && o > 0 && a > 0 && k > 0) {
-                    --c;
-                    --r;
-                    --o;
-                    --a;
-                    --k;
-                }
-                result = max(result, k);
+                --dpc;
+                --dpr;
+                --dpo;
+                --dpa;
+                --dpk;
             }
         }
-        if (c > 0 || r > 0 || o > 0 || a > 0 || k > 0) {
+        if (dpc != 0) {
             return -1;
         }
         return result;
