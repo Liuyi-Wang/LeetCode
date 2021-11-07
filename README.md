@@ -147,7 +147,10 @@ LeetCode journey
 	
 ## Stack
 	1776. Car Fleet II
-	
+
+## String
+	43. Multiply Strings
+
 ## Sweeping Line
 	218. The Skyline Problem
 	850. Rectangle Area II
