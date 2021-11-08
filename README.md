@@ -172,6 +172,7 @@ LeetCode journey
 	
 ## Trie(prefix search)
 	208. Implement Trie (Prefix Tree)
+	425. Word Squares
 	588. Design In-Memory File System
 	642. Design Search Autocomplete System
 ### Pruning

@@ -1,66 +1,69 @@
-static int __ = []() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-	std::cout.tie(nullptr);
-	return 0;
-}();
-
 class Solution {
 public:
     struct Node {
-        vector<int> d_i;
-        vector<Node*> d_node;
-        Node(): d_node(26, NULL) {}
+        bool d_end;
+        vector<Node*> d_children;
+        vector<string> d_words;
+        Node() {
+            d_children = vector<Node*>(26, NULL);
+        }
     };
     
-    void build(const vector<string>& words) {
-        for (int i = 0; i < words.size(); ++i) {
-            Node* node = root;
-            for (auto c:words[i]) {
-                if (NULL == node->d_node[c-'a']) {
-                    node->d_node[c-'a'] = new Node();
-                }
-                node = node->d_node[c-'a'];
-                node->d_i.push_back(i);
-            }
-        }
-    }
-    
-    void solve(int col, const vector<string>& words, 
-               vector<vector<string>>& results, vector<string>& result) {
-        if (col == words[0].size()) {
-            results.push_back(result);
+    void insert(Node* root, const string& word, int i) {
+        root->d_words.push_back(word);
+        if (i == word.size()) {
+            root->d_end = true;
             return;
         }
-        string pre;
-        for (int i = 0; i < col; ++i) {
-            pre += result[i][col];
+        if (root->d_children[word[i]-'a'] == NULL) {
+            root->d_children[word[i]-'a'] = new Node();
         }
-        Node* node = root;
-        for (int i = 0; i < pre.size(); ++i) {
-            if (NULL == node->d_node[pre[i]-'a']) {
-                return;
-            }
-            node = node->d_node[pre[i]-'a'];
+        insert(root->d_children[word[i]-'a'], word, i+1);
+    }
+    
+    Node* find(Node* root, const string& word, int i) {
+        if (i == word.size()) {
+            return root;
         }
-        for (auto index:node->d_i) {
-            result.push_back(words[index]);
-            solve(col+1, words, results, result);
-            result.pop_back();
+        if (root->d_children[word[i]-'a'] == NULL) {
+            return NULL;
         }
+        return find(root->d_children[word[i]-'a'], word, i+1);
     }
     
     vector<vector<string>> wordSquares(vector<string>& words) {
-        root = new Node();
-        build(words);
-        vector<vector<string>> results;
-        for (const auto& word:words) {
-            vector<string> result = {word};
-            solve(1, words, results, result);
+        d_root = new Node();
+        for (auto word:words) {
+            insert(d_root, word, 0);
         }
-        return results;
+        for (auto word:words) {
+            vector<string> square = {word};
+            build(words, square, 1, word.size());
+        }
+        return d_result;
+    }
+    
+    void build(const vector<string>& words, vector<string>& square, int i, int n) {
+        if (i == n) {
+            d_result.push_back(square);
+            return;
+        }
+        string s;
+        for (int j = 0; j < i; ++j) {
+            s += square[j][i];
+        }
+        Node* node = find(d_root, s, 0);
+        if (node == NULL) {
+            return;
+        }
+        for (int j = 0; j < node->d_words.size(); ++j) {
+            square.push_back(node->d_words[j]);
+            build(words, square, i+1, n);
+            square.pop_back();
+        }
     }
     
 private:
-    Node* root;
+    Node* d_root;
+    vector<vector<string>> d_result;
 };
