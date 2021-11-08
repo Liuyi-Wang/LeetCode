@@ -1,13 +1,15 @@
-static int __ = []() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-	std::cout.tie(nullptr);
-	return 0;
-}();
-
+/**
+ *  Time:
+ *  O(n*n)
+ *  Space:
+ *  O(n)
+ */
 class Solution {
 public:
     int numTrees(int n) {
+        if (n == 1) {
+            return 1;
+        }
         vector<int> dp(n+1, 0);
         dp[0] = 1;
         dp[1] = 1;
