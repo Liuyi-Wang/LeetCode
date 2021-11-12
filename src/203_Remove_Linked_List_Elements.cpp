@@ -3,22 +3,26 @@
  * struct ListNode {
  *     int val;
  *     ListNode *next;
- *     ListNode(int x) : val(x), next(NULL) {}
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
 class Solution {
 public:
     ListNode* removeElements(ListNode* head, int val) {
-        ListNode* result = new ListNode(0);
-        ListNode* tail = result;
+        ListNode* begin = new ListNode();
+        begin->next = head;
+        ListNode* prev = begin;
         while (head) {
-            if (val != head->val) {
-                tail->next = head;
-                tail = head;
+            if (head->val == val) {
+                prev->next = head->next;
+                head = head->next;
+            } else {
+                prev = head;
+                head = head->next;
             }
-            head = head->next;
         }
-        tail->next = NULL;
-        return result->next;
+        return begin->next;
     }
 };
