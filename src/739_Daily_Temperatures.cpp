@@ -1,24 +1,18 @@
-static int __ = []() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-	std::cout.tie(nullptr);
-	return 0;
-}();
-
 class Solution {
 public:
-    vector<int> dailyTemperatures(vector<int>& T) {
-        vector<int> result(T.size(), 0);
-        stack<pair<int, int>> s;
-        s.push({T.back(), T.size()-1});
-        for (int i = T.size()-2; i >= 0; --i) {
-            while (!s.empty() && s.top().first <= T[i]) {
-                s.pop();
+    vector<int> dailyTemperatures(vector<int>& temperatures) {
+        int n = temperatures.size();
+        stack<int> stk;
+        vector<int> result(n, 0);
+        stk.push(n-1);
+        for (int i = n-2; i >= 0; --i) {
+            while (!stk.empty() && temperatures[i] >= temperatures[stk.top()]) {
+                stk.pop();
             }
-            if (!s.empty()) {
-                result[i] = s.top().second-i;
+            if (!stk.empty()) {
+                result[i] = stk.top()-i;
             }
-            s.push({T[i], i});
+            stk.push(i);
         }
         return result;
     }

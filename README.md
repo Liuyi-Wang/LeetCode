@@ -148,6 +148,7 @@ LeetCode journey
 	2009. Minimum Number of Operations to Make Array Continuous
 	
 ## Stack
+	739. Daily Temperatures
 	1776. Car Fleet II
 
 ## String
