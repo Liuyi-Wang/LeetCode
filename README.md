@@ -59,7 +59,7 @@ LeetCode journey
     325. Maximum Size Subarray Sum Equals k
 	926. Flip String to Monotone Increasing
 	1277. Count Square Submatrices with All Ones
-### Current round depends on last round
+### Linear, current round only depends on last round
 	188. Best Time to Buy and Sell Stock IV
 	198. House Robber
 	213. House Robber II
@@ -77,6 +77,8 @@ LeetCode journey
 	1419. Minimum Number of Frogs Croaking
     1463. Cherry Pickup II
 	1473. Paint House III
+### Linear, choose from all choices
+	368. Largest Divisible Subset
 ### Current state depends on multi choices
 	53. Maximum Subarray
 	70. Climbing Stairs

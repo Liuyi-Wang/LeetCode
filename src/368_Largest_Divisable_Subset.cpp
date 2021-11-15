@@ -1,40 +1,36 @@
-static int __ = []() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-	std::cout.tie(nullptr);
-	return 0;
-}();
-
+/**
+ *  Time:
+ *  O(n*n)
+ *  Space:
+ *  O(n)
+ */
 class Solution {
 public:
     vector<int> largestDivisibleSubset(vector<int>& nums) {
-        if (nums.size() < 2) {
-            return nums;
-        }
         sort(nums.begin(), nums.end());
-        vector<int> last(nums.size(), 0);
-        vector<int> count(nums.size(), 1);
-        int max_c = 1;
-        int max_i = 0;
-        for (int i = 1; i < nums.size(); ++i) {
-            last[i] = i;
-            for (int j = i-1; j >= 0; --j) {
-                if (nums[i]%nums[j] == 0 && count[i] < count[j]+1) {
-                    count[i] = count[j]+1;
-                    last[i] = j;
-                    if (count[i] > max_c) {
-                        max_c = count[i];
-                        max_i = i;
+        int n = nums.size();
+        vector<int> dp(n, 1);
+        vector<int> prev(n, -1);
+        int idx = 0, count = 1;
+        for (int i = 1; i < n; ++i) {
+            for (int j = 0; j < i; ++j) {
+                if (nums[i]%nums[j] == 0) {
+                    if (dp[j]+1 > dp[i]) {
+                        dp[i] = dp[j]+1;
+                        prev[i] = j;
                     }
                 }
             }
+            if (dp[i] > count) {
+                count = dp[i];
+                idx = i;
+            }
         }
         vector<int> result;
-        while (max_i != last[max_i]) {
-            result.push_back(nums[max_i]);
-            max_i = last[max_i]; 
+        while (idx != -1) {
+            result.push_back(nums[idx]);
+            idx = prev[idx];
         }
-        result.push_back(nums[max_i]);
         return result;
     }
 };
