@@ -31,8 +31,10 @@ LeetCode journey
     1428. Leftmost Column with at Least a One
 	2071. Maximum Number of Tasks You Can Assign
 ### Guess
+	668. Kth Smallest Number in Multiplication Table
 	774. Minimize Max Distance to Gas Station
 	1231. Divide Chocolate
+	2071. Maximum Number of Tasks You Can Assign
     
 ## Bit
 ### Manipulation
