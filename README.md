@@ -190,3 +190,4 @@ LeetCode journey
 
 ## Union-Find
     261. Graph Valid Tree
+	2076. Process Restricted Friend Requests
