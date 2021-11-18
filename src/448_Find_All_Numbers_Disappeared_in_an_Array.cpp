@@ -1,24 +1,27 @@
-static int __ = []() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-	std::cout.tie(nullptr);
-	return 0;
-}();
-
+/**
+ *  Time:
+ *  O(n)
+ *  Space:
+ *  O(1)
+ */
 class Solution {
 public:
     vector<int> findDisappearedNumbers(vector<int>& nums) {
-        for (int i = 0; i < nums.size(); ++i) {
-            if (i+1 == nums[i]) {
+        int n = nums.size();
+        for (int i = 0; i < n; ++i) {
+            if (nums[i] == 0) {
                 continue;
             }
-            while (nums[i] > 0 && nums[i] <= nums.size() && nums[nums[i]-1] != nums[i]) {
-                swap(nums[nums[i]-1], nums[i]);
+            int j = nums[i];
+            while (nums[j-1] != 0) {
+                int t = nums[j-1];
+                nums[j-1] = 0;
+                j = t;
             }
         }
         vector<int> result;
-        for (int i = 0; i < nums.size(); ++i) {
-            if (i+1 != nums[i]) {
+        for (int i = 0; i < n; ++i) {
+            if (nums[i] != 0) {
                 result.push_back(i+1);
             }
         }

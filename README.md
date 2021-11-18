@@ -130,7 +130,10 @@ LeetCode journey
 
 ## Greedy
 	261. Graph Valid Tree
-	
+
+## Hash Table
+	448. Find All Numbers Disappeared in an Array
+
 ## List
 ### Stack
 	430. Flatten a Multilevel Doubly Linked List
