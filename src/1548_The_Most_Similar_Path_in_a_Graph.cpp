@@ -1,56 +1,50 @@
+/**
+ *  Time:
+ *  O(nmk)
+ *  Space:
+ *  O(nm)
+ */
 class Solution {
 public:
     vector<int> mostSimilar(int n, vector<vector<int>>& roads, vector<string>& names, vector<string>& targetPath) {
-        unordered_map<int, vector<int>> connects;
+        vector<vector<int>> connects(n, vector<int>());
         for (auto road:roads) {
             connects[road[0]].push_back(road[1]);
             connects[road[1]].push_back(road[0]);
         }
-        unordered_map<int, string> idToName;
-        for (int i = 0; i < names.size(); ++i) {
-            idToName[i] = names[i];
-        }
         int m = targetPath.size();
-        vector<vector<pair<int, int>>> dp(n, vector<pair<int, int>>(m, {0, -1}));
+        vector<vector<pair<int, int>>> dp(m, vector<pair<int, int>>(n, pair<int, int>(1, -1)));
         for (int i = 0; i < n; ++i) {
-            if (idToName.find(i) == idToName.end() || targetPath[0] != idToName[i]) {
-                dp[i][0].first = 1;
+            if (names[i] == targetPath[0]) {
+                dp[0][i].first = 0;
             }
-        }       
-        for (int j = 1; j < m; ++j) {
-            for (int i = 0; i < n; ++i) {
-                pair<int, int> p;
-                p.first = INT_MAX;
-                for (int k = 0; k < connects[i].size(); ++k) {
-                    if (p.first > dp[connects[i][k]][j-1].first) {
-                        p.first = dp[connects[i][k]][j-1].first;
-                        p.second = connects[i][k];
+        }
+        for (int i = 1; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                pair<int, int> p = {INT_MAX, -1};
+                for (int k = 0; k < connects[j].size(); ++k) {
+                    if (dp[i-1][connects[j][k]].first < p.first) {
+                        p.first = dp[i-1][connects[j][k]].first;
+                        p.second = connects[j][k];
                     }
                 }
-                if (idToName.find(i) == idToName.end() || targetPath[j] != idToName[i]) {
+                if (names[j] != targetPath[i]) {
                     ++p.first;
                 }
                 dp[i][j] = p;
             }
         }
-        /*
+        int id = -1, dis = INT_MAX;
         for (int i = 0; i < n; ++i) {
-            for (int j = 0; j < m; ++j) {
-                cout << dp[i][j].first << "|" << dp[i][j].second << ",";
-            }
-            cout << endl;
-        }
-        */
-        int id = -1, ed = INT_MAX;
-        for (int i = 0; i < n; ++i) {
-            if (ed > dp[i].back().first) {
-                ed = dp[i].back().first;
+            if (dis > dp.back()[i].first) {
+                dis = dp.back()[i].first;
                 id = i;
             }
         }
         vector<int> result = {id};
-        for (int j = m-1; j >= 1; --j) {
-            result.push_back(dp[result.back()][j].second);
+        for (int i = m-1; i >= 1; --i) {
+            result.push_back(dp[i][id].second);
+            id = dp[i][id].second;
         }
         reverse(result.begin(), result.end());
         return result;

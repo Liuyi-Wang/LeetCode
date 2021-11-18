@@ -80,6 +80,7 @@ LeetCode journey
 	1419. Minimum Number of Frogs Croaking
     1463. Cherry Pickup II
 	1473. Paint House III
+	1548. The Most Similar Path in a Graph
 ### Linear, choose from all choices
 	368. Largest Divisible Subset
 ### Current state depends on multi choices
