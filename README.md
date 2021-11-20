@@ -27,6 +27,7 @@ LeetCode journey
 	302. Smallest Rectangle Enclosing Black Pixels
 	374. Guess Number Higher or Lower
 	441. Arranging Coins
+	540. Single Element in a Sorted Array
 	1044. Longest Duplicate Substring
     1428. Leftmost Column with at Least a One
 	2071. Maximum Number of Tasks You Can Assign
