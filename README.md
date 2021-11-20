@@ -138,6 +138,9 @@ LeetCode journey
 ## Hash Table
 	448. Find All Numbers Disappeared in an Array
 
+## Heap
+	407. Trapping Rain Water II
+
 ## List
 ### Stack
 	430. Flatten a Multilevel Doubly Linked List
