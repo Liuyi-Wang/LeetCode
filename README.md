@@ -125,6 +125,7 @@ LeetCode journey
 #### Monotone Chain
     587. Erect the Fence
 ### 2. Dijkstra
+	743. Network Delay Time
     882. Reachable Nodes In Subdivided Graph
 ### 3. Minimum spanning tree (MST)
 #### Prim's algorithm
