@@ -57,6 +57,7 @@ LeetCode journey
 
 ## Divide and Conquer
 	53. Maximum Subarray
+	106. Construct Binary Tree from Inorder and Postorder Traversal
 
 ## Dynamic Programming
 ### Accumulated Sum
