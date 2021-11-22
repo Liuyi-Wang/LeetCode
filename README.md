@@ -31,6 +31,7 @@ LeetCode journey
 	1044. Longest Duplicate Substring
     1428. Leftmost Column with at Least a One
 	2071. Maximum Number of Tasks You Can Assign
+	2080. Range Frequency Queries
 ### Guess
 	668. Kth Smallest Number in Multiplication Table
 	774. Minimize Max Distance to Gas Station
