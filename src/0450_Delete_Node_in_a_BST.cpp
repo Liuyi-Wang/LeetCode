@@ -1,44 +1,45 @@
-static int __ = []() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-	std::cout.tie(nullptr);
-	return 0;
-}();
-
+/**
+ *  Time:
+ *  O(logn)
+ *  Space:
+ *  O(logn)
+ */
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;
  *     TreeNode *left;
  *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
 class Solution {
 public:
     TreeNode* deleteNode(TreeNode* root, int key) {
-        if (NULL == root) {
+        if (root == NULL) {
+            return NULL;
+        }
+        if (root->val < key) {
+            root->right = deleteNode(root->right, key);
             return root;
         }
         if (root->val > key) {
             root->left = deleteNode(root->left, key);
             return root;
         }
-        if (root->val < key) {
-            root->right = deleteNode(root->right, key);
-            return root;
-        }
-        if (NULL == root->left && NULL == root->right) {
+        if (root->left == NULL && root->right == NULL) {
             return NULL;
         }
-        if (NULL == root->left) {
+        if (root->left == NULL && root->right) {
             return root->right;
         }
-        if (NULL == root->right) {
+        if (root->left && root->right == NULL) {
             return root->left;
         }
         TreeNode* node = root->right;
-        while (node->left) {
+        while (node && node->left) {
             node = node->left;
         }
         root->val = node->val;

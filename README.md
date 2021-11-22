@@ -36,6 +36,9 @@ LeetCode journey
 	774. Minimize Max Distance to Gas Station
 	1231. Divide Chocolate
 	2071. Maximum Number of Tasks You Can Assign
+
+## Binary Search Tree
+	450. Delete Node in a BST
     
 ## Bit
 ### Manipulation
