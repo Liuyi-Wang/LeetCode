@@ -34,6 +34,7 @@ LeetCode journey
 ### Guess
 	668. Kth Smallest Number in Multiplication Table
 	774. Minimize Max Distance to Gas Station
+	778. Swim in Rising Water
 	1231. Divide Chocolate
 	2071. Maximum Number of Tasks You Can Assign
 
@@ -144,6 +145,7 @@ LeetCode journey
 
 ## Heap
 	407. Trapping Rain Water II
+	778. Swim in Rising Water
 
 ## List
 ### Stack
