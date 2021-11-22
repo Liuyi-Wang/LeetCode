@@ -139,6 +139,7 @@ LeetCode journey
 
 ## Greedy
 	261. Graph Valid Tree
+	2078. Two Furthest Houses With Different Colors
 
 ## Hash Table
 	448. Find All Numbers Disappeared in an Array
