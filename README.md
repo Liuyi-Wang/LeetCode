@@ -150,6 +150,9 @@ LeetCode journey
 ### Distance
 	296. Best Meeting Point
 	
+## Queue
+	1429. First Unique Number
+
 ## Segment Tree
 	307. Range Sum Query - Mutable
 	1526. Minimum Number of Increments on Subarrays to Form a Target Array
