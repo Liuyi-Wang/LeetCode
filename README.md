@@ -60,6 +60,11 @@ LeetCode journey
 	155. Min Stack
 	380. Insert Delete GetRandom O(1)
 
+## Dijkstra
+	407. Trapping Rain Water II
+	505. The Maze II
+	778. Swim in Rising Water
+
 ## Divide and Conquer
 	53. Maximum Subarray
 	106. Construct Binary Tree from Inorder and Postorder Traversal
@@ -146,8 +151,6 @@ LeetCode journey
 	448. Find All Numbers Disappeared in an Array
 
 ## Heap
-	407. Trapping Rain Water II
-	778. Swim in Rising Water
 
 ## List
 ### Stack
