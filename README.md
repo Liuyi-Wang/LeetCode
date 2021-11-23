@@ -64,6 +64,7 @@ LeetCode journey
 	407. Trapping Rain Water II
 	505. The Maze II
 	778. Swim in Rising Water
+	787. Cheapest Flights Within K Stops
 
 ## Divide and Conquer
 	53. Maximum Subarray
