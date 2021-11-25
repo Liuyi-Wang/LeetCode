@@ -52,6 +52,7 @@ LeetCode journey
 	1066. Campus Bikes II
 	1239. Maximum Length of a Concatenated String with Unique Characters
 	1879. Minimum XOR Sum of Two Arrays
+	1947. Maximum Compatibility Score Sum
 
 ## Boyer-Moore majority vote algorithm
 
@@ -70,6 +71,7 @@ LeetCode journey
 	882. Reachable Nodes In Subdivided Graph
 	1066. Campus Bikes II
 	1879. Minimum XOR Sum of Two Arrays
+	1947. Maximum Compatibility Score Sum
 
 ## Divide and Conquer
 	53. Maximum Subarray
