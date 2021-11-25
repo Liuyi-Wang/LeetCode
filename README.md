@@ -49,7 +49,9 @@ LeetCode journey
 ### Mask/Status
 	260. Single Number III
 	980. Unique Paths III
+	1066. Campus Bikes II
 	1239. Maximum Length of a Concatenated String with Unique Characters
+	1879. Minimum XOR Sum of Two Arrays
 
 ## Boyer-Moore majority vote algorithm
 
@@ -67,6 +69,7 @@ LeetCode journey
 	787. Cheapest Flights Within K Stops
 	882. Reachable Nodes In Subdivided Graph
 	1066. Campus Bikes II
+	1879. Minimum XOR Sum of Two Arrays
 
 ## Divide and Conquer
 	53. Maximum Subarray
