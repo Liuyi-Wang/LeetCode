@@ -77,6 +77,7 @@ LeetCode journey
 	1810. Minimum Path Cost in a Hidden Grid
 	1879. Minimum XOR Sum of Two Arrays
 	1947. Maximum Compatibility Score Sum
+	1976. Number of Ways to Arrive at Destination
 
 ## Divide and Conquer
 	53. Maximum Subarray
