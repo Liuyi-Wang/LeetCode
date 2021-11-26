@@ -22,6 +22,7 @@ LeetCode journey
     1293. Shortest Path in a Grid with Obstacles Elimination
 
 ## Binary Search
+	35. Search Insert Position
 	153. Find Minimum in Rotated Sorted Array
 	222. Count Complete Tree Nodes
 	302. Smallest Rectangle Enclosing Black Pixels
