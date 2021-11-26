@@ -73,6 +73,7 @@ LeetCode journey
 	1066. Campus Bikes II
 	1368. Minimum Cost to Make at Least One Valid Path in a Grid
 	1514. Path with Maximum Probability
+	1786. Number of Restricted Paths From First to Last Node
 	1879. Minimum XOR Sum of Two Arrays
 	1947. Maximum Compatibility Score Sum
 
