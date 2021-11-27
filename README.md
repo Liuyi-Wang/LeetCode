@@ -84,7 +84,8 @@ LeetCode journey
 	106. Construct Binary Tree from Inorder and Postorder Traversal
 
 ## Dynamic Programming
-### Accumulated Sum
+### Prefix Sum
+	238. Product of Array Except Self
     325. Maximum Size Subarray Sum Equals k
 	926. Flip String to Monotone Increasing
 	1277. Count Square Submatrices with All Ones
@@ -173,7 +174,7 @@ LeetCode journey
 ## Math
 ### Distance
 	296. Best Meeting Point
-	
+
 ## Queue
 	1429. First Unique Number
 
