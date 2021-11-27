@@ -175,6 +175,9 @@ LeetCode journey
 ### Distance
 	296. Best Meeting Point
 
+## Palindrome
+	479. Largest Palindrome Product
+
 ## Queue
 	1429. First Unique Number
 
