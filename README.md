@@ -240,3 +240,4 @@ LeetCode journey
     261. Graph Valid Tree
 	952. Largest Component Size by Common Factor
 	2076. Process Restricted Friend Requests
+	2092. Find All People With Secret
