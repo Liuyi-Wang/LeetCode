@@ -91,6 +91,7 @@ LeetCode journey
 	1277. Count Square Submatrices with All Ones
 ### Linear, current round only depends on last round
 	62. Unique Paths
+	152. Maximum Product Subarray
 	188. Best Time to Buy and Sell Stock IV
 	198. House Robber
 	213. House Robber II
