@@ -232,6 +232,7 @@ LeetCode journey
 	425. Word Squares
 	588. Design In-Memory File System
 	642. Design Search Autocomplete System
+	1032. Stream of Characters
 ### Pruning
 	212. Word Search II
 

@@ -1,58 +1,48 @@
 class StreamChecker {
-public:
     struct Node {
-        vector<Node*> d_c;
         bool d_end;
+        vector<Node*> d_children;
         Node(): d_end(false) {
-            d_c = vector<Node*>(26, NULL);
+            d_children = vector<Node*>(26, NULL);
         }
     };
     
-    StreamChecker(vector<string>& words): d_root(NULL), max_l(0), d_last("") {
-        d_root = new Node();
+    Node* root;
+    string S;
+public:
+    void insert(Node* root, const string& word, int i) {
+        if (i == -1) {
+            root->d_end = true;
+            return;
+        }
+        if (!root->d_children[word[i]-'a']) {
+            root->d_children[word[i]-'a'] = new Node();
+        }
+        insert(root->d_children[word[i]-'a'], word, i-1);
+    }
+    
+    StreamChecker(vector<string>& words) {
+        root = new Node();
         for (auto word:words) {
-            insertWord(d_root, word, word.size()-1);
-            max_l = max(max_l, int(word.size()));
+            insert(root, word, word.size()-1);
         }
     }
     
     bool query(char letter) {
-        d_last += letter;
-        int len = min(max_l, int(d_last.size()));
-        string temp = d_last.substr(d_last.size()-len);
-        if (inList(temp, temp.size()-1, d_root)) {
-            return true;
+        S += letter;
+        Node* node = root;
+        for (int i = S.size()-1; i >= 0; --i) {
+            if (node->d_children[S[i]-'a']) {
+                if (node->d_children[S[i]-'a']->d_end) {
+                    return true;
+                } else {
+                    node = node->d_children[S[i]-'a'];
+                }
+            } else {
+                return false;
+            }
         }
         return false;
-    }
-
-private:
-    Node* d_root;
-    int max_l;
-    string d_last;
-    
-    void insertWord(Node* root, const string& word, int index) {
-        if (0 > index) {
-            root->d_end = true;
-            return;
-        }
-        if (NULL == root->d_c[word[index]-'a']) {
-            root->d_c[word[index]-'a'] = new Node();
-        }
-        insertWord(root->d_c[word[index]-'a'], word, index-1);
-    }
-    
-    bool inList(const string& temp, int index, Node* root) {
-        if (root->d_end) {
-            return true;
-        }
-        if (index < 0) {
-            return false;
-        }
-        if (NULL == root->d_c[temp[index]-'a']) {
-            return false;
-        }
-        return inList(temp, index-1, root->d_c[temp[index]-'a']);
     }
 };
 
