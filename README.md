@@ -199,6 +199,7 @@ LeetCode journey
 	2009. Minimum Number of Operations to Make Array Continuous
 	
 ## Stack
+	84. Largest Rectangle in Histogram
 	739. Daily Temperatures
 	1776. Car Fleet II
 
