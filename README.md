@@ -128,6 +128,8 @@ LeetCode journey
     546. Remove Boxes
 ### Graph
     1548. The Most Similar Path in a Graph
+### Matrix
+	85. Maximal Rectangle
 ### Meno
     95. Unique Binary Search Trees II
     834. Sum of Distances in Tree
