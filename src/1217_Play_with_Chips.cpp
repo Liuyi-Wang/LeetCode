@@ -1,16 +1,15 @@
-static int __ = []() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-	std::cout.tie(nullptr);
-	return 0;
-}();
-
+/**
+ *  Time:
+ *  O(n)
+ *  Space:
+ *  O(1)
+ */
 class Solution {
 public:
-    int minCostToMoveChips(vector<int>& chips) {
+    int minCostToMoveChips(vector<int>& position) {
         int odd = 0, even = 0;
-        for (int i = 0; i < chips.size(); ++i) {
-            if (0 == chips[i]%2) {
+        for (auto p:position) {
+            if (p%2 == 0) {
                 ++even;
             } else {
                 ++odd;
