@@ -182,6 +182,7 @@ LeetCode journey
 
 ## Palindrome
 	479. Largest Palindrome Product
+	866. Prime Palindrome
 
 ## Queue
 	1429. First Unique Number
