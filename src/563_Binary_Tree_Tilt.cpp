@@ -1,37 +1,35 @@
-static int __ = []() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-	std::cout.tie(nullptr);
-	return 0;
-}();
-
+/**
+ *  Time:
+ *  O(n)
+ *  Space:
+ *  O(1)
+ */
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;
  *     TreeNode *left;
  *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
 class Solution {
+    int result;
 public:
-    int solve(TreeNode* root) {
-        if (NULL == root) {
+    int findTilt(TreeNode* root) {
+        sum(root);
+        return result;
+    }
+    
+    int sum(TreeNode* root) {
+        if (root == NULL) {
             return 0;
         }
-        int l = solve(root->left);
-        int r = solve(root->right);
-        d_result += abs(l-r);
+        int l = sum(root->left);
+        int r = sum(root->right);
+        result += abs(l-r);
         return l+r+root->val;
     }
-    
-    int findTilt(TreeNode* root) {
-        d_result = 0;
-        solve(root);
-        return d_result;
-    }
-    
-private:
-    int d_result;
 };
