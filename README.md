@@ -13,6 +13,7 @@ LeetCode journey
 ## BFS
 	130. Surrounded Regions
 	994. Rotting Oranges
+	1306. Jump Game III
 ### Deque
     1263. Minimum Moves to Move a Box to Their Target Location
 ### Reverse
@@ -63,6 +64,9 @@ LeetCode journey
 ## Desgin
 	155. Min Stack
 	380. Insert Delete GetRandom O(1)
+
+## DFS
+	1306. Jump Game III
 
 ## Dijkstra
 	407. Trapping Rain Water II
