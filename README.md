@@ -154,6 +154,7 @@ LeetCode journey
     1143. Longest Common Subsequence
 
 ## Eulerian Circuit
+	332. Reconstruct Itinerary
 	2097. Valid Arrangement of Pairs
 
 ## Graph
