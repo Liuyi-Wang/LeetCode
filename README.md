@@ -153,6 +153,9 @@ LeetCode journey
     115. Distinct Subsequences
     1143. Longest Common Subsequence
 
+## Eulerian Circuit
+	2097. Valid Arrangement of Pairs
+
 ## Graph
 ### 1. Convex Hull
 #### Monotone Chain
