@@ -139,6 +139,8 @@ LeetCode journey
     834. Sum of Distances in Tree
 ### Min-max decision
     1406. Stone Game III
+### Package
+	416. Partition Equal Subset Sum
 ### Status
 	980. Unique Paths III
 ### Sybproblem
