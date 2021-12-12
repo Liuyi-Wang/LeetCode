@@ -14,6 +14,7 @@ LeetCode journey
 	130. Surrounded Regions
 	994. Rotting Oranges
 	1306. Jump Game III
+	2101. Detonate the Maximum Bombs
 ### Deque
     1263. Minimum Moves to Move a Box to Their Target Location
 ### Reverse
@@ -67,6 +68,7 @@ LeetCode journey
 
 ## DFS
 	1306. Jump Game III
+	2101. Detonate the Maximum Bombs
 
 ## Dijkstra
 	407. Trapping Rain Water II
@@ -216,6 +218,7 @@ LeetCode journey
 	84. Largest Rectangle in Histogram
 	739. Daily Temperatures
 	1776. Car Fleet II
+	2102. Sequentially Ordinal Rank Tracker
 
 ## String
 	43. Multiply Strings
