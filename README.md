@@ -183,6 +183,7 @@ LeetCode journey
 	328. Odd Even Linked List
 	708. Insert into a Sorted Circular Linked List
 ### Stack
+	42. Trapping Rain Water
 	430. Flatten a Multilevel Doubly Linked List
 
 ## Math
