@@ -165,9 +165,6 @@ LeetCode journey
 ### 1. Convex Hull
 #### Monotone Chain
     587. Erect the Fence
-### 2. Dijkstra
-	743. Network Delay Time
-    882. Reachable Nodes In Subdivided Graph
 ### 3. Minimum spanning tree (MST)
 #### Prim's algorithm
 #### Kruskal's algorithm
@@ -251,6 +248,9 @@ LeetCode journey
 	1032. Stream of Characters
 ### Pruning
 	212. Word Search II
+
+## Topological Sort
+	310. Minimum Height Trees
 
 ## Two Pointers
 	15. 3Sum
