@@ -183,7 +183,6 @@ LeetCode journey
 	328. Odd Even Linked List
 	708. Insert into a Sorted Circular Linked List
 ### Stack
-	42. Trapping Rain Water
 	430. Flatten a Multilevel Doubly Linked List
 
 ## Math
@@ -212,7 +211,8 @@ LeetCode journey
 	1703. Minimum Adjacent Swaps for K Consecutive Ones
 	2009. Minimum Number of Operations to Make Array Continuous
 	
-## Stack
+## Monotonic Stack
+	42. Trapping Rain Water
 	84. Largest Rectangle in Histogram
 	739. Daily Temperatures
 	1776. Car Fleet II

@@ -7,19 +7,20 @@
 class Solution {
 public:
     int largestRectangleArea(vector<int>& heights) {
+        int result = 0;
         heights.push_back(0);
         stack<int> stk;
-        int result = 0;
-        int n = heights.size();
-        for (int i = 0; i < n; ++i) {
+        for (int i = 0; i < heights.size(); ++i) {
             while (!stk.empty() && heights[stk.top()] > heights[i]) {
-                int h = heights[stk.top()];
+                int top = stk.top();
                 stk.pop();
+                int l = -1;
                 if (!stk.empty()) {
-                    result = max(result, h*(i-1-stk.top()-1+1));
-                } else {
-                    result = max(result, h*(i-1+1));
+                    l = stk.top();
                 }
+                ++l;
+                int width = i-1-l+1;
+                result = max(result, width*heights[top]);
             }
             stk.push(i);
         }
