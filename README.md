@@ -217,6 +217,7 @@ LeetCode journey
 	255. Verify Preorder Sequence in Binary Search Tree
 	496. Next Greater Element I
 	739. Daily Temperatures
+	768. Max Chunks To Make Sorted II
 	1776. Car Fleet II
 	2102. Sequentially Ordinal Rank Tracker
 
