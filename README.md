@@ -215,6 +215,7 @@ LeetCode journey
 	42. Trapping Rain Water
 	84. Largest Rectangle in Histogram
 	255. Verify Preorder Sequence in Binary Search Tree
+	496. Next Greater Element I
 	739. Daily Temperatures
 	1776. Car Fleet II
 	2102. Sequentially Ordinal Rank Tracker
