@@ -218,6 +218,7 @@ LeetCode journey
 	496. Next Greater Element I
 	739. Daily Temperatures
 	768. Max Chunks To Make Sorted II
+	901. Online Stock Span
 	1776. Car Fleet II
 	2102. Sequentially Ordinal Rank Tracker
 
