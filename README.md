@@ -222,6 +222,7 @@ LeetCode journey
 	901. Online Stock Span
 	907. Sum of Subarray Minimums
 	1776. Car Fleet II
+	1856. Maximum Subarray Min-Product
 	2102. Sequentially Ordinal Rank Tracker
 
 ## String
