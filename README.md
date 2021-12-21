@@ -188,6 +188,7 @@ LeetCode journey
 
 ## Longest Increasing Subsequnce
 	300. Longest Increasing Subsequence
+	2111. Minimum Operations to Make the Array K-Increasing
 
 ## Math
 ### Distance
