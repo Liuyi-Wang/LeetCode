@@ -221,6 +221,7 @@ LeetCode journey
 	768. Max Chunks To Make Sorted II
 	901. Online Stock Span
 	907. Sum of Subarray Minimums
+	962. Maximum Width Ramp
 	1776. Car Fleet II
 	1856. Maximum Subarray Min-Product
 	2102. Sequentially Ordinal Rank Tracker
