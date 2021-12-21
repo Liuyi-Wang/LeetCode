@@ -186,6 +186,9 @@ LeetCode journey
 ### Stack
 	430. Flatten a Multilevel Doubly Linked List
 
+## Longest Increasing Subsequnce
+	300. Longest Increasing Subsequence
+
 ## Math
 ### Distance
 	296. Best Meeting Point
