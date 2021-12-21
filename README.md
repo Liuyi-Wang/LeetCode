@@ -227,6 +227,7 @@ LeetCode journey
 	907. Sum of Subarray Minimums
 	962. Maximum Width Ramp
 	1019. Next Greater Node In Linked List
+	1063. Number of Valid Subarrays
 	1776. Car Fleet II
 	1856. Maximum Subarray Min-Product
 	2102. Sequentially Ordinal Rank Tracker
