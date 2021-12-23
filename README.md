@@ -229,6 +229,7 @@ LeetCode journey
 	1019. Next Greater Node In Linked List
 	1063. Number of Valid Subarrays
 	1124. Longest Well-Performing Interval
+	1130. Minimum Cost Tree From Leaf Values
 	1776. Car Fleet II
 	1856. Maximum Subarray Min-Product
 	2102. Sequentially Ordinal Rank Tracker
