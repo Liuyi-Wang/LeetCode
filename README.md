@@ -232,6 +232,7 @@ LeetCode journey
 	1130. Minimum Cost Tree From Leaf Values
 	1776. Car Fleet II
 	1856. Maximum Subarray Min-Product
+	1944. Number of Visible People in a Queue
 	2102. Sequentially Ordinal Rank Tracker
 
 ## String
