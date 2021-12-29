@@ -270,6 +270,7 @@ LeetCode journey
 ## Topological Sort
 	210. Course Schedule II
 	310. Minimum Height Trees
+	2115. Find All Possible Recipes from Given Supplies
 
 ## Two Pointers
 	15. 3Sum
