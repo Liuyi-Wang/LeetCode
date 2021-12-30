@@ -1,10 +1,9 @@
-static int __ = []() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-	std::cout.tie(nullptr);
-	return 0;
-}();
-
+/**
+ *  Time:
+ *  O(n)
+ *  Space:
+ *  O(n)
+ */
 /**
  * // This is the interface that allows for creating nested lists.
  * // You should not implement it, or speculate about its implementation
@@ -35,24 +34,31 @@ static int __ = []() {
  * };
  */
 class Solution {
+        vector<int> s;
+        vector<int> d;
+        int maxd;
 public:
-    int solve(const vector<NestedInteger>& nestedList, const int sum) {
-        if (0 == nestedList.size()) {
-            return sum;
+    int depthSumInverse(vector<NestedInteger>& nestedList) {
+        maxd = 0;
+        for (auto it:nestedList) {
+            decode(it, 1);
         }
-        vector<NestedInteger> nextLevel;
-        int s = 0;
-        for (int i = 0; i < nestedList.size(); ++i) {
-            if (nestedList[i].isInteger()) {
-                s += nestedList[i].getInteger();
-            } else {
-                nextLevel.insert(nextLevel.end(), nestedList[i].getList().begin(), nestedList[i].getList().end());
-            }
+        int result = 0;
+        for (int i = 0; i < s.size(); ++i) {
+            result += (maxd-d[i]+1)*s[i];
         }
-        return sum+solve(nextLevel, sum+s);
+        return result;
     }
     
-    int depthSumInverse(vector<NestedInteger>& nestedList) {
-        return solve(nestedList, 0);
+    void decode(NestedInteger it, int depth) {
+        if (it.isInteger()) {
+            s.push_back(it.getInteger());
+            d.push_back(depth);
+            maxd = max(maxd, depth);
+            return;
+        }
+        for (auto next:it.getList()) {
+            decode(next, depth+1);
+        }
     }
 };
