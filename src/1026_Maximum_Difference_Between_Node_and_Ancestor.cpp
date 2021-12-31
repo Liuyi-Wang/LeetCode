@@ -1,53 +1,62 @@
 /**
+ *  Time:
+ *  O(n)
+ *  Space:
+ *  O(n)
+ */
+/**
  * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;
  *     TreeNode *left;
  *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ *     TreeNode() : val(0), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+ *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
 class Solution {
+    int result;
 public:
-    void solve(TreeNode* root, const int& upMax, const int& upMin, int& downMax, int& downMin) {
-        d_result = max(d_result, abs(root->val-upMax));
-        d_result = max(d_result, abs(root->val-upMin));
-        downMax = root->val;
-        downMin = root->val;
-        if (NULL != root->left) {
-            int lMax = 0, lMin = 0;
-            solve(root->left, root->val, root->val, lMax, lMin);
-            d_result = max(d_result, abs(root->val-lMax));
-            d_result = max(d_result, abs(root->val-lMin));
-            downMax = max(downMax, lMax);
-            downMin = min(downMin, lMin);
-        }
-        if (NULL != root->right) {
-            int rMax = 0, rMin = 0;
-            solve(root->right, root->val, root->val, rMax, rMin);
-            d_result = max(d_result, abs(root->val-rMax));
-            d_result = max(d_result, abs(root->val-rMin));
-            downMax = max(downMax, rMax);
-            downMin = min(downMin, rMin);
-        }
+    int maxAncestorDiff(TreeNode* root) {
+        result = 0;
+        int maxv, minv;
+        dfs(root, maxv, minv);
+        return result;
     }
     
-    int maxAncestorDiff(TreeNode* root) {
-        d_result = INT_MIN;
-        if (NULL != root->left) {
-            int lMax = 0, lMin = 0;
-            solve(root->left, root->val, root->val, lMax, lMin);
-            d_result = max(d_result, abs(root->val-lMax));
-            d_result = max(d_result, abs(root->val-lMin));
+    void dfs(TreeNode* root, int& maxv, int& minv) {
+        if (root->left && root->right) {
+            int lmax, lmin, rmax, rmin;
+            dfs(root->left, lmax, lmin);
+            dfs(root->right, rmax, rmin);
+            maxv = max(lmax, rmax);
+            maxv = max(maxv, root->val);
+            minv = min(lmin, rmin);
+            minv = min(minv, root->val);
+            result = max(result, abs(root->val-lmax));
+            result = max(result, abs(root->val-rmax));
+            result = max(result, abs(root->val-lmin));
+            result = max(result, abs(root->val-rmin));
+            return;
+        } else if (root->left) {
+            int lmax, lmin;
+            dfs(root->left, lmax, lmin);
+            maxv = max(lmax, root->val);
+            minv = min(lmin, root->val);
+            result = max(result, abs(root->val-lmax));
+            result = max(result, abs(root->val-lmin));
+            return;
+        } else if (root->right) {
+            int rmax, rmin;
+            dfs(root->right, rmax, rmin);
+            maxv = max(rmax, root->val);
+            minv = min(rmin, root->val);
+            result = max(result, abs(root->val-rmax));
+            result = max(result, abs(root->val-rmin));
+            return;
         }
-        if (NULL != root->right) {
-            int rMax = 0, rMin = 0;
-            solve(root->right, root->val, root->val, rMax, rMin);
-            d_result = max(d_result, abs(root->val-rMax));
-            d_result = max(d_result, abs(root->val-rMin));
-        }
-        return d_result;
+        maxv = root->val;
+        minv = root->val;
     }
-private:
-    int d_result;
 };
