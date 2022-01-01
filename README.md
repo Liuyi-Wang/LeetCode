@@ -107,6 +107,7 @@ LeetCode journey
 	309. Best Time to Buy and Sell Stock with Cooldown
 	514. Freedom Trail
 	552. Student Attendance Record II
+	568. Maximum Vacation Days
 	714. Best Time to Buy and Sell Stock with Transaction Fee
 	740. Delete and Earn
 	801. Minimum Swaps To Make Sequences Increasing
