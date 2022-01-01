@@ -156,8 +156,9 @@ LeetCode journey
 	940. Distinct Subsequences II
 	1216. Valid Palindrome III
 	1987. Number of Unique Good Subsequences
-### Two Strings
+### Two Sequences
     115. Distinct Subsequences
+	718. Maximum Length of Repeated Subarray
     1143. Longest Common Subsequence
 
 ## Eulerian Circuit
