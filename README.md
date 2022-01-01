@@ -144,6 +144,8 @@ LeetCode journey
     1406. Stone Game III
 ### Package
 	416. Partition Equal Subset Sum
+###	Start from small interval
+	312. Burst Balloons
 ### Status
 	980. Unique Paths III
 ### Sybproblem
