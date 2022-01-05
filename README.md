@@ -146,6 +146,7 @@ LeetCode journey
 ### Package
 	416. Partition Equal Subset Sum
 ###	Start from small interval
+	131. Palindrome Partitioning
 	312. Burst Balloons
 ### Status
 	980. Unique Paths III
