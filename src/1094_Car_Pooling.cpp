@@ -1,29 +1,28 @@
+/**
+ *  Time:
+ *  O(nlogn)
+ *  Space:
+ *  O(n)
+ */
 class Solution {
 public:
-    struct less_than {
-        inline bool operator() (const pair<int, int>& left,
-                                const pair<int, int>& right) {
-            if (left.first < right.first) {
-                return true;
-            }
-            if (left.first > right.first) {
-                return false;
-            }
-            return left.second < right.second;
-        }    
-    };
-    
     bool carPooling(vector<vector<int>>& trips, int capacity) {
-        vector<pair<int,int> > stations;
-        for (int i = 0; i < trips.size(); ++i) {
-            stations.push_back(pair<int, int>(trips[i][1], trips[i][0]));
-            stations.push_back(pair<int, int>(trips[i][2], -trips[i][0]));
+        vector<pair<int, int>> v;
+        for (auto trip:trips) {
+            v.push_back({trip[1], trip[0]});
+            v.push_back({trip[2], -trip[0]});
         }
-        sort(stations.begin(), stations.end(), less_than());
-        int passengers = 0;
-        for (int i = 0; i < stations.size(); ++i) {
-            passengers += stations[i].second;
-            if (passengers > capacity) {
+        auto cmp = [](const pair<int, int>& p1, const pair<int, int>& p2) {
+            if (p1.first == p2.first) {
+                return p1.second < p2.second;
+            }
+            return p1.first < p2.first;
+        };
+        sort(v.begin(), v.end(), cmp);
+        int n = 0;
+        for (auto p:v) {
+            n += p.second;
+            if (n > capacity) {
                 return false;
             }
         }
