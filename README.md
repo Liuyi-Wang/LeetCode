@@ -207,6 +207,9 @@ LeetCode journey
 ## Queue
 	1429. First Unique Number
 
+## Reservoir Sampling
+	382. Linked List Random Node
+
 ## Segment Tree
 	307. Range Sum Query - Mutable
 	1526. Minimum Number of Increments on Subarrays to Form a Target Array
