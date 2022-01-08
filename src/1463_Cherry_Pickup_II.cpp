@@ -1,36 +1,41 @@
+/**
+ *  Time:
+ *  O(mnn)
+ *  Space:
+ *  O(mnn)
+ */
 class Solution {
 public:
     int cherryPickup(vector<vector<int>>& grid) {
-        int m = grid.size(), n = grid[0].size();
-        vector<vector<vector<int>>> dp(2, vector<vector<int>>(n, vector<int>(n, INT_MIN)));
-        dp[0][0][n-1] = grid[0][0] + grid[0][n-1];
-        vector<int> directions = {-1, 0, 1};
-        int result = 0;
-        for (int r = 1; r < m; ++r) {
-            int prev = (r-1)%2;
-            int cur = r%2;
-            for (int i = 0; i < n; ++i) {
-                for (int j = i; j < n; ++j) {
-                    dp[cur][i][j] = INT_MIN;
-                    for (int k = 0; k < 3; ++k) {
-                        int I = i + directions[k];
-                        if (I < 0 || I >= n) {
-                            continue;
+        int m = grid.size();
+        int n = grid[0].size();
+        vector<vector<vector<int>>> dp(m, vector<vector<int>>(n, vector<int>(n, -1)));
+        dp[0][0].back() = grid[0][0]+grid[0].back();
+        for (int i = 1; i < m; ++i) {
+            for (int j = 0; j < n; ++j) {
+                for (int k = 0; k < n; ++k) {
+                    int last = -1;
+                    for (int r1 = j-1; r1 <= j+1; ++r1) {
+                        for (int r2 = k-1; r2 <= k+1; ++r2) {
+                            if (r1 >= 0 && r2 >= 0 && r1 < n && r2 < n) {
+                                last = max(last, dp[i-1][r1][r2]);
+                            }
                         }
-                        for (int l = 0; l < 3; ++l) {
-                            int J = j + directions[l];
-                            if (J < 0 || J >= n) {
-                                continue;
-                            }
-                            if (i == j) {
-                                dp[cur][i][j] = max(dp[cur][i][j], grid[r][i]+dp[prev][I][J]);
-                            } else {
-                                dp[cur][i][j] = max(dp[cur][i][j], grid[r][i]+grid[r][j]+dp[prev][I][J]);
-                            }
-                            result = max(result, dp[cur][i][j]);
+                    }
+                    if (last != -1) {
+                        if (j == k) {
+                            dp[i][j][k] = last+grid[i][j];
+                        } else {
+                            dp[i][j][k] = last+grid[i][j]+grid[i][k];
                         }
                     }
                 }
+            }
+        }
+        int result = 0;
+        for (int j = 0; j < n; ++j) {
+            for (int k = 0; k < n; ++k) {
+                result = max(result, dp.back()[j][k]);
             }
         }
         return result;
