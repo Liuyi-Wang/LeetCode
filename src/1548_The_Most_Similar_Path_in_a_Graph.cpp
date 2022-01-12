@@ -13,7 +13,7 @@ public:
             connects[road[1]].push_back(road[0]);
         }
         int m = targetPath.size();
-        vector<vector<pair<int, int>>> dp(m, vector<pair<int, int>>(n, pair<int, int>(1, -1)));
+        vector<vector<pair<int, int>>> dp(m, vector<pair<int, int>>(n, {1, -1}));
         for (int i = 0; i < n; ++i) {
             if (names[i] == targetPath[0]) {
                 dp[0][i].first = 0;
@@ -23,7 +23,7 @@ public:
             for (int j = 0; j < n; ++j) {
                 pair<int, int> p = {INT_MAX, -1};
                 for (int k = 0; k < connects[j].size(); ++k) {
-                    if (dp[i-1][connects[j][k]].first < p.first) {
+                    if (p.first > dp[i-1][connects[j][k]].first) {
                         p.first = dp[i-1][connects[j][k]].first;
                         p.second = connects[j][k];
                     }
@@ -34,17 +34,19 @@ public:
                 dp[i][j] = p;
             }
         }
-        int id = -1, dis = INT_MAX;
+        pair<int, int> p = {INT_MAX, -1};
+        int index = 0;
         for (int i = 0; i < n; ++i) {
-            if (dis > dp.back()[i].first) {
-                dis = dp.back()[i].first;
-                id = i;
+            if (p.first > dp.back()[i].first) {
+                p = dp.back()[i];
+                index = i;
             }
         }
-        vector<int> result = {id};
-        for (int i = m-1; i >= 1; --i) {
-            result.push_back(dp[i][id].second);
-            id = dp[i][id].second;
+        vector<int> result = {index};
+        int i = m-2;
+        while (p.second != -1) {
+            result.push_back(p.second);
+            p = dp[i--][p.second];
         }
         reverse(result.begin(), result.end());
         return result;
