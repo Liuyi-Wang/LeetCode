@@ -7,44 +7,44 @@
 class Solution {
 public:
     int minNumberOfFrogs(string croakOfFrogs) {
-        int dpc = 0, dpr = 0, dpo = 0, dpa = 0, dpk = 0;
+        int c = 0, r = 0, o = 0, a = 0;
         int result = 0;
-        for (auto c:croakOfFrogs) {
-            if (c == 'c') {
-                ++dpc;
-                result = max(result, dpc);
-            }
-            if (c == 'r') {
-                ++dpr;
-                if (dpr > dpc) {
+        for (auto croak:croakOfFrogs) {
+            if (croak == 'c') {
+                ++c;
+            } else if (croak == 'r') {
+                ++r;
+                if (r > c) {
                     return -1;
                 }
-            }
-            if (c == 'o') {
-                ++dpo;
-                if (dpo > dpr) {
+            } else if (croak == 'o') {
+                ++o;
+                if (o > c) {
                     return -1;
                 }
-            }
-            if (c == 'a') {
-                ++dpa;
-                if (dpa > dpo) {
+                if (o > r) {
                     return -1;
                 }
-            }
-            if (c == 'k') {
-                ++dpk;
-                if (dpk > dpa) {
+            } else if (croak == 'a') {
+                ++a;
+                if (a > c) {
                     return -1;
                 }
-                --dpc;
-                --dpr;
-                --dpo;
-                --dpa;
-                --dpk;
+                if (a > r) {
+                    return -1;
+                }
+                if (a > o) {
+                    return -1;
+                }
+            } else if (croak == 'k') {
+                --c;
+                --r;
+                --o;
+                --a;
             }
+            result = max(result, c);
         }
-        if (dpc != 0) {
+        if (c != 0) {
             return -1;
         }
         return result;
