@@ -119,6 +119,7 @@ LeetCode journey
 	1473. Paint House III
 	1548. The Most Similar Path in a Graph
 	1746. Maximum Subarray Sum After One Operation
+	1824. Minimum Sideway Jumps
 ### Linear, choose from all choices
 	368. Largest Divisible Subset
 ### Current state depends on multi choices
