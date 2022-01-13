@@ -199,6 +199,25 @@ LeetCode journey
 ## Math
 ### Distance
 	296. Best Meeting Point
+	
+## Monotonic Stack
+	42. Trapping Rain Water
+	84. Largest Rectangle in Histogram
+	255. Verify Preorder Sequence in Binary Search Tree
+	496. Next Greater Element I
+	739. Daily Temperatures
+	768. Max Chunks To Make Sorted II
+	901. Online Stock Span
+	907. Sum of Subarray Minimums
+	962. Maximum Width Ramp
+	1019. Next Greater Node In Linked List
+	1063. Number of Valid Subarrays
+	1124. Longest Well-Performing Interval
+	1130. Minimum Cost Tree From Leaf Values
+	1776. Car Fleet II
+	1856. Maximum Subarray Min-Product
+	1944. Number of Visible People in a Queue
+	2102. Sequentially Ordinal Rank Tracker
 
 ## Palindrome
 	479. Largest Palindrome Product
@@ -224,25 +243,9 @@ LeetCode journey
 	1610. Maximum Number of Visible Points
 	1703. Minimum Adjacent Swaps for K Consecutive Ones
 	2009. Minimum Number of Operations to Make Array Continuous
-	
-## Monotonic Stack
-	42. Trapping Rain Water
-	84. Largest Rectangle in Histogram
-	255. Verify Preorder Sequence in Binary Search Tree
-	496. Next Greater Element I
-	739. Daily Temperatures
-	768. Max Chunks To Make Sorted II
-	901. Online Stock Span
-	907. Sum of Subarray Minimums
-	962. Maximum Width Ramp
-	1019. Next Greater Node In Linked List
-	1063. Number of Valid Subarrays
-	1124. Longest Well-Performing Interval
-	1130. Minimum Cost Tree From Leaf Values
-	1776. Car Fleet II
-	1856. Maximum Subarray Min-Product
-	1944. Number of Visible People in a Queue
-	2102. Sequentially Ordinal Rank Tracker
+
+## Sorting
+	452. Minimum Number of Arrows to Burst Balloons
 
 ## String
 	43. Multiply Strings
