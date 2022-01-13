@@ -120,6 +120,7 @@ LeetCode journey
 	1548. The Most Similar Path in a Graph
 	1746. Maximum Subarray Sum After One Operation
 	1824. Minimum Sideway Jumps
+	1839. Longest Substring Of All Vowels in Order
 ### Linear, choose from all choices
 	368. Largest Divisible Subset
 ### Current state depends on multi choices
@@ -243,6 +244,7 @@ LeetCode journey
 ## Sliding Window
 	1610. Maximum Number of Visible Points
 	1703. Minimum Adjacent Swaps for K Consecutive Ones
+	1839. Longest Substring Of All Vowels in Order
 	2009. Minimum Number of Operations to Make Array Continuous
 
 ## Sorting
