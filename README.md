@@ -14,6 +14,7 @@ LeetCode journey
 	130. Surrounded Regions
 	994. Rotting Oranges
 	1306. Jump Game III
+	1345. Jump Game IV
 	2101. Detonate the Maximum Bombs
 ### Deque
     1263. Minimum Moves to Move a Box to Their Target Location

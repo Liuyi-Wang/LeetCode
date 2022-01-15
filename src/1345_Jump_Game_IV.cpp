@@ -1,48 +1,57 @@
+/**
+ *  Time:
+ *  O(n)
+ *  Space:
+ *  O(n)
+ */
 class Solution {
 public:
     int minJumps(vector<int>& arr) {
-        if (arr.size() == 1) {
-            return 0;
-        }
         int n = arr.size();
-        map<int, unordered_set<int>> hash;
-        vector<bool> visited(n, false);
-        for (int i = 0; i < arr.size(); ++i) {
-            hash[arr[i]].insert(i);
+        unordered_map<int, vector<int>> hash;
+        for (int i = 0; i < n;) {
+            int begin = i;
+            hash[arr[i]].push_back(i++);
+            while (i < n && arr[i] == arr[i-1]) {
+                ++i;
+            }
+            if (begin != i-1) {
+                hash[arr[i-1]].push_back(i-1);
+            }
         }
+        vector<bool> visited(n, false);
         queue<int> q;
         q.push(0);
         visited[0] = true;
-        int count = 0;
+        int step = 0;
         while (!q.empty()) {
             int size = q.size();
-            for (int i = 0; i < size; ++i) {
-                int j = q.front();
+            for (int k = 0; k < size; ++k) {
+                int i = q.front();
                 q.pop();
-                if (j == n-1) {
-                    return count;
+                if (i == n-1) {
+                    return step;
                 }
-                if (j+1 < n && !visited[j+1]) {
-                    q.push(j+1);
-                    visited[j+1] = true;
+                if (i+1 < n && !visited[i+1]) {
+                    q.push(i+1);
+                    visited[i+1] = true;
                 }
-                if (j-1 >= 0 && !visited[j-1]) {
-                    q.push(j-1);
-                    visited[j-1] = true;
+                if (i-1 >= 0 && !visited[i-1]) {
+                    q.push(i-1);
+                    visited[i-1] = true;
                 }
-                if (hash.find(arr[j]) != hash.end()) {
-                    for (auto k:hash[arr[j]]) {
-                        if (k == j || visited[k]) {
-                            continue;
+                if (hash.find(arr[i]) != hash.end()) {
+                    for (auto j:hash[arr[i]]) {
+                        if (!visited[j]) {
+                            q.push(j);
+                            visited[j] = true;
                         }
-                        q.push(k);
-                        visited[k] = true;
                     }
-                    hash.erase(hash.find(arr[j]));
+                    hash.erase(hash.find(arr[i]));
                 }
             }
-            ++count;
+            ++step;
         }
-        return count;
+        return step;
     }
 };
