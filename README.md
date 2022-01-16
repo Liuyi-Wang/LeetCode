@@ -123,7 +123,8 @@ LeetCode journey
 	1824. Minimum Sideway Jumps
 	1839. Longest Substring Of All Vowels in Order
 	2036. Maximum Alternating Subarray Sum
-### Linear, choose from all choices
+### Linear, choose from multi choices
+	300. Longest Increasing Subsequence
 	368. Largest Divisible Subset
 ### Current state depends on multi choices
 	53. Maximum Subarray

@@ -3,21 +3,27 @@
  *  O(nlogn)
  *  Space:
  *  O(n)
+ *  dp
+ *  Time:
+ *  O(nn)
+ *  Space:
+ *  O(n)
  */
 class Solution {
 public:
     int lengthOfLIS(vector<int>& nums) {
-        return sol2(nums);
+        return dp(nums);
     }
     
-    int sol1(vector<int>& nums) {
-        vector<int> dp(nums.size(), 1);
+    int dp(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> dp(n, 1);
         int result = 1;
-        for (int i = 1; i < dp.size(); ++i) {
+        for (int i = 1; i < nums.size(); ++i) {
             for (int j = 0; j < i; ++j) {
                 if (nums[i] > nums[j]) {
                     dp[i] = max(dp[i], dp[j]+1);
-                }       
+                }
             }
             result = max(result, dp[i]);
         }
