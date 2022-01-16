@@ -126,6 +126,7 @@ LeetCode journey
 ### Linear, choose from multi choices
 	300. Longest Increasing Subsequence
 	368. Largest Divisible Subset
+	673. Number of Longest Increasing Subsequence
 ### Current state depends on multi choices
 	53. Maximum Subarray
 	70. Climbing Stairs
