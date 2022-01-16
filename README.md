@@ -97,7 +97,7 @@ LeetCode journey
     325. Maximum Size Subarray Sum Equals k
 	926. Flip String to Monotone Increasing
 	1277. Count Square Submatrices with All Ones
-### Linear, current round only depends on last round
+### Linear, only depends on last round
 	62. Unique Paths
 	152. Maximum Product Subarray
 	188. Best Time to Buy and Sell Stock IV
@@ -122,8 +122,9 @@ LeetCode journey
 	1746. Maximum Subarray Sum After One Operation
 	1824. Minimum Sideway Jumps
 	1839. Longest Substring Of All Vowels in Order
+	1883. Minimum Skips to Arrive at Meeting On Time
 	2036. Maximum Alternating Subarray Sum
-### Linear, choose from multi choices
+### Linear, depends on all previous rounds
 	300. Longest Increasing Subsequence
 	368. Largest Divisible Subset
 	673. Number of Longest Increasing Subsequence
