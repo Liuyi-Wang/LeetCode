@@ -129,6 +129,7 @@ LeetCode journey
 	368. Largest Divisible Subset
 	673. Number of Longest Increasing Subsequence
 	960. Delete Columns to Make Sorted III
+	1713. Minimum Operations to Make a Subsequence
 ### Current state depends on multi choices
 	53. Maximum Subarray
 	70. Climbing Stairs
