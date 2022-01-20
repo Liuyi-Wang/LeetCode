@@ -125,13 +125,14 @@ LeetCode journey
 	1839. Longest Substring Of All Vowels in Order
 	1883. Minimum Skips to Arrive at Meeting On Time
 	2036. Maximum Alternating Subarray Sum
-### Linear, depends on all previous rounds
+### Linear, depends on multi previous rounds
 	300. Longest Increasing Subsequence
 	368. Largest Divisible Subset
 	673. Number of Longest Increasing Subsequence
 	960. Delete Columns to Make Sorted III
 	983. Minimum Cost For Tickets
 	1043. Partition Array for Maximum Sum
+	1105. Filling Bookcase Shelves
 	1713. Minimum Operations to Make a Subsequence
 ### Current state depends on multi choices
 	53. Maximum Subarray
