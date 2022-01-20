@@ -131,6 +131,7 @@ LeetCode journey
 	673. Number of Longest Increasing Subsequence
 	960. Delete Columns to Make Sorted III
 	983. Minimum Cost For Tickets
+	1043. Partition Array for Maximum Sum
 	1713. Minimum Operations to Make a Subsequence
 ### Current state depends on multi choices
 	53. Maximum Subarray

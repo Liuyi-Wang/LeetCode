@@ -1,19 +1,30 @@
+/**
+ *  Time:
+ *  O(nk)
+ *  Space:
+ *  O(n)
+ */
 class Solution {
 public:
-    int maxSumAfterPartitioning(vector<int>& A, int K) {
-        vector<int> sums(A.size(), 0);
-        int m = 0;
-        for (int i = 0; i < K; ++i) {
-            m = max(m, A[i]);
-            sums[i] = m*(i+1);
-        }
-        for (int i = K; i < A.size(); ++i) {
-            m = 0;
-            for (int j = 0; j < K; ++j) {
-                m = max(m, A[i-j]);
-                sums[i] = max(sums[i], m*(j+1)+sums[i-j-1]);
+    int maxSumAfterPartitioning(vector<int>& arr, int k) {
+        int n = arr.size();
+        vector<int> dp(n, 0);
+        dp[0] = arr[0];
+        for (int i = 1; i < n; ++i) {
+            dp[i] = dp[i-1]+arr[i];
+            int m = arr[i];
+            for (int j = 1; j < k; ++j) {
+                if (i-j < 0) {
+                    break;
+                }
+                m = max(m, arr[i-j]);
+                if (i-j-1 >= 0) {
+                    dp[i] = max(dp[i], dp[i-j-1]+m*(j+1));
+                } else {
+                    dp[i] = max(dp[i], m*(j+1));
+                }
             }
         }
-        return sums.back();
+        return dp.back();
     }
 };
