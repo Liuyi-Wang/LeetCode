@@ -191,6 +191,7 @@ LeetCode journey
     1135. Connecting Cities With Minimum Cost
 
 ## Greedy
+	134. Gas Station
 	261. Graph Valid Tree
 	2078. Two Furthest Houses With Different Colors
 
