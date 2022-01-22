@@ -135,6 +135,7 @@ LeetCode journey
 	1105. Filling Bookcase Shelves
 	1713. Minimum Operations to Make a Subsequence
 	1959. Minimum Total Space Wasted With K Resizing Operations
+	2052. Minimum Cost to Separate Sentence Into Rows
 ### Current state depends on multi choices
 	53. Maximum Subarray
 	70. Climbing Stairs
