@@ -145,6 +145,7 @@ LeetCode journey
 	337. House Robber III
 	377. Combination Sum IV
 	920. Number of Music Playlists
+	1416. Restore The Array
 #### From end to start
 	174. Dungeon Game
 	656. Coin Path
