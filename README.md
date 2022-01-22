@@ -134,6 +134,7 @@ LeetCode journey
 	1043. Partition Array for Maximum Sum
 	1105. Filling Bookcase Shelves
 	1713. Minimum Operations to Make a Subsequence
+	1959. Minimum Total Space Wasted With K Resizing Operations
 ### Current state depends on multi choices
 	53. Maximum Subarray
 	70. Climbing Stairs
