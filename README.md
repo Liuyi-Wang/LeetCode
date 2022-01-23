@@ -133,6 +133,7 @@ LeetCode journey
 	983. Minimum Cost For Tickets
 	1043. Partition Array for Maximum Sum
 	1105. Filling Bookcase Shelves
+	1626. Best Team With No Conflicts
 	1713. Minimum Operations to Make a Subsequence
 	1959. Minimum Total Space Wasted With K Resizing Operations
 	2052. Minimum Cost to Separate Sentence Into Rows
