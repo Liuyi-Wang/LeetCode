@@ -1,10 +1,9 @@
-static int __ = []() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(nullptr);
-	std::cout.tie(nullptr);
-	return 0;
-}();
-
+/**
+ *  Time:
+ *  O(n)
+ *  Space:
+ *  O(1)
+ */
 class Solution {
 public:
     int minimumTotal(vector<vector<int>>& triangle) {
@@ -15,8 +14,8 @@ public:
                 triangle[i][j] += min(triangle[i-1][j-1], triangle[i-1][j]);
             }
         }
-        int result = triangle.back()[0];
-        for (int i = 1; i < triangle.back().size(); ++i) {
+        int result = INT_MAX;
+        for (int i = 0; i < triangle.back().size(); ++i) {
             result = min(result, triangle.back()[i]);
         }
         return result;
