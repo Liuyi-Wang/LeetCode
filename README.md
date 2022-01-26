@@ -115,9 +115,11 @@ LeetCode journey
 	568. Maximum Vacation Days
 	714. Best Time to Buy and Sell Stock with Transaction Fee
 	740. Delete and Earn
+	741. Cherry Pickup
 	801. Minimum Swaps To Make Sequences Increasing
 	1223. Dice Roll Simulation
 	1262. Greatest Sum Divisible by Three
+	1289. Minimum Falling Path Sum II
 	1363. Largest Multiple of Three
 	1419. Minimum Number of Frogs Croaking
     1463. Cherry Pickup II
