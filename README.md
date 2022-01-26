@@ -46,6 +46,7 @@ LeetCode journey
 
 ## Binary Search Tree
 	450. Delete Node in a BST
+	1305. All Elements in Two Binary Search Trees
     
 ## Bit
 ### Manipulation
