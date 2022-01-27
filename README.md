@@ -301,6 +301,7 @@ LeetCode journey
 	
 ## Trie(prefix search)
 	208. Implement Trie (Prefix Tree)
+	421. Maximum XOR of Two Numbers in an Array
 	425. Word Squares
 	588. Design In-Memory File System
 	642. Design Search Autocomplete System
