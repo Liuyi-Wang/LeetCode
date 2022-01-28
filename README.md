@@ -125,6 +125,7 @@ LeetCode journey
     1463. Cherry Pickup II
 	1473. Paint House III
 	1548. The Most Similar Path in a Graph
+	1594. Maximum Non Negative Product in a Matrix
 	1746. Maximum Subarray Sum After One Operation
 	1824. Minimum Sideway Jumps
 	1839. Longest Substring Of All Vowels in Order
