@@ -8,19 +8,19 @@ class Solution {
 public:
     int largestRectangleArea(vector<int>& heights) {
         int result = 0;
-        heights.push_back(0);
         stack<int> stk;
+        heights.push_back(0);
         for (int i = 0; i < heights.size(); ++i) {
             while (!stk.empty() && heights[stk.top()] > heights[i]) {
-                int top = stk.top();
+                int h = heights[stk.top()];
                 stk.pop();
-                int l = -1;
+                int w;
                 if (!stk.empty()) {
-                    l = stk.top();
+                    w = (i-1-stk.top()-1+1);
+                } else {
+                    w = i;
                 }
-                ++l;
-                int width = i-1-l+1;
-                result = max(result, width*heights[top]);
+                result = max(result, w*h);
             }
             stk.push(i);
         }
