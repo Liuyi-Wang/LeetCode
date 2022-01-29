@@ -133,6 +133,7 @@ LeetCode journey
 	2036. Maximum Alternating Subarray Sum
 	## Knapsack
 	322. Coin Change
+	474. Ones and Zeroes
 	518. Coin Change 2
 ### Linear, depends on multi previous rounds
 	300. Longest Increasing Subsequence
