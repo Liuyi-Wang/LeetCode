@@ -19,9 +19,9 @@ public:
                 continue;
             }
             int mn = INT_MAX;
-            for (int j = 0; j < coins.size(); ++j) {
-                if (i-coins[j] >= 0 && dp[i-coins[j]] != -1) {
-                    mn = min(mn, dp[i-coins[j]]+1);
+            for (auto coin:coins) {
+                if (i-coin >= 0 && dp[i-coin] != -1) {
+                    mn = min(mn, dp[i-coin]+1);
                 }
             }
             if (mn != INT_MAX) {
