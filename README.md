@@ -312,6 +312,7 @@ LeetCode journey
 	588. Design In-Memory File System
 	642. Design Search Autocomplete System
 	1032. Stream of Characters
+	1101. The Earliest Moment When Everyone Become Friends
 ### Pruning
 	212. Word Search II
 
