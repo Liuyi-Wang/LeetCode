@@ -312,7 +312,6 @@ LeetCode journey
 	588. Design In-Memory File System
 	642. Design Search Autocomplete System
 	1032. Stream of Characters
-	1101. The Earliest Moment When Everyone Become Friends
 ### Pruning
 	212. Word Search II
 
@@ -330,5 +329,6 @@ LeetCode journey
     261. Graph Valid Tree
 	721. Accounts Merge
 	952. Largest Component Size by Common Factor
+	1101. The Earliest Moment When Everyone Become Friends
 	2076. Process Restricted Friend Requests
 	2092. Find All People With Secret
